@@ -1,0 +1,83 @@
+<header
+  class="site-header sticky top-0 z-50 w-full border-b border-emerald-900/20 shadow-sm shadow-emerald-950/10 backdrop-blur-xl"
+>
+  <div class="container mx-auto flex h-32 items-center justify-between px-4 sm:px-8 lg:px-12">
+    <a
+      routerLink="/"
+      fragment="home"
+      class="flex items-center"
+      aria-label="vereinleicht Startseite"
+    >
+      <img
+        src="vereinleicht-logo.png"
+        alt="vereinleicht"
+        width="400"
+        height="200"
+        class="h-24 w-64 object-contain sm:h-32 sm:w-80"
+      />
+    </a>
+
+    <div class="ml-auto flex items-center gap-2">
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
+        <a
+          routerLink="/"
+          fragment="challenges"
+          (click)="closeMenus('challenges')"
+          class="nav-trigger"
+          >Euer Alltag</a
+        >
+        <a routerLink="/" fragment="services" (click)="closeMenus('services')" class="nav-trigger"
+          >Leistungen</a
+        >
+        <a routerLink="/" fragment="approach" (click)="closeMenus('approach')" class="nav-trigger"
+          >Arbeitsweise</a
+        >
+        <a routerLink="/" fragment="contact" (click)="closeMenus('contact')" class="nav-trigger"
+          >Kontakt</a
+        >
+      </nav>
+
+      <button
+        type="button"
+        (click)="themeService.toggleDarkMode()"
+        class="rounded-xl border border-emerald-200 bg-emerald-50 p-2 text-emerald-800 dark:border-emerald-900/60 dark:bg-emerald-950/50 dark:text-emerald-200"
+        aria-label="Farbschema wechseln"
+      >
+        <span aria-hidden="true">{{ themeService.darkMode() ? '☀' : '☾' }}</span>
+      </button>
+      <button
+        type="button"
+        (click)="toggleMenu()"
+        class="rounded-xl p-2 text-emerald-800 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/50 lg:hidden"
+        aria-label="Navigation öffnen oder schließen"
+        [attr.aria-expanded]="isMenuOpen"
+      >
+        <span class="text-xl" aria-hidden="true">{{ isMenuOpen ? '×' : '☰' }}</span>
+      </button>
+    </div>
+  </div>
+
+  @if (isMenuOpen) {
+    <nav
+      class="grid gap-1 border-t border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800/40 dark:bg-emerald-950 lg:hidden"
+      aria-label="Mobile Hauptnavigation"
+    >
+      <a
+        routerLink="/"
+        fragment="challenges"
+        (click)="closeMenus('challenges')"
+        class="mobile-nav-item"
+        >Euer Alltag</a
+      >
+      <a routerLink="/" fragment="services" (click)="closeMenus('services')" class="mobile-nav-item"
+        >Leistungen</a
+      >
+      <a routerLink="/" fragment="approach" (click)="closeMenus('approach')" class="mobile-nav-item"
+        >Arbeitsweise</a
+      >
+      <a routerLink="/" fragment="contact" (click)="closeMenus('contact')" class="mobile-nav-item"
+        >Kontakt</a
+      >
+    </nav>
+  }
+</header>

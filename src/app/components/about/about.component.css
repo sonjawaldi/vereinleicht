@@ -1,0 +1,40 @@
+.skills-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-0.75rem);
+  transition:
+    grid-template-rows 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-page-section {
+  min-height: calc(100svh - 4rem);
+  padding-block: clamp(3rem, 7vh, 6rem);
+}
+
+#motivation,
+#skills,
+#team {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skills-details--open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-details__inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-details {
+    transition: none;
+  }
+}

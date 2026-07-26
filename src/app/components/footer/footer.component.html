@@ -1,0 +1,19 @@
+<footer class="border-t border-gray-200 bg-white py-10 transition-colors dark:border-gray-800 dark:bg-black">
+  <div class="container mx-auto px-6 text-center sm:px-12 lg:px-20">
+    <a routerLink="/" class="text-xl font-black tracking-tight text-gray-950 dark:text-white">
+      verein<span class="text-emerald-600 dark:text-emerald-400">leicht</span>
+    </a>
+    <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+      Digitale Lösungen, die Ehrenamt leichter machen.
+    </p>
+    <nav class="mt-7 flex flex-wrap justify-center gap-6" aria-label="Rechtliche Informationen">
+      <a routerLink="/impressum" class="text-xs text-gray-500 hover:text-emerald-600">Impressum</a>
+      <a routerLink="/barrierefreiheit" class="text-xs text-gray-500 hover:text-emerald-600">Barrierefreiheit</a>
+      <a routerLink="/datenschutz" class="text-xs text-gray-500 hover:text-emerald-600">Datenschutz</a>
+      <button type="button" class="text-xs text-gray-500 hover:text-emerald-600" (click)="consent.openSettings()">
+        Cookie-Einstellungen
+      </button>
+    </nav>
+    <p class="mt-7 text-xs text-gray-500">&copy; 2026 vereinleicht. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>

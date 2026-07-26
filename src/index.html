@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>vereinleicht | Digitale Lösungen für Vereine</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Websites, Mitgliederportale und digitale Prozesse speziell für Vereine – barrierearm, datenschutzbewusst und einfach zu pflegen."
+    />
+    <meta
+      name="keywords"
+      content="Vereinswebsite, Mitgliederverwaltung, Vereinssoftware, Digitalisierung, Barrierefreiheit, Ehrenamt"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vereinleicht.de/" />
+    <meta property="og:title" content="vereinleicht | Digitale Lösungen für Vereine" />
+    <meta
+      property="og:description"
+      content="Barrierearme, datenschutzbewusste Websites und Mitgliederportale speziell für Vereine."
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://vereinleicht.de/" />
+    <meta property="twitter:title" content="vereinleicht | Digitale Lösungen für Vereine" />
+    <meta
+      property="twitter:description"
+      content="Barrierearme, datenschutzbewusste Websites und Mitgliederportale speziell für Vereine."
+    />
+
+    <link rel="icon" type="image/png" href="favicon.png?v=4" />
+    <link rel="apple-touch-icon" href="favicon.png?v=4" />
+    <link rel="shortcut icon" href="favicon.png?v=4" type="image/png" />
+
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches) ||
+        !localStorage.getItem('theme')
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

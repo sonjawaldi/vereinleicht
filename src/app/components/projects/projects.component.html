@@ -1,0 +1,179 @@
+<section id="projects" class="py-8 bg-white dark:bg-black transition-colors duration-300">
+  <div class="container mx-auto px-6 sm:px-12 lg:px-20">
+    <div class="mx-auto mb-12 max-w-5xl">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-blue-500/70">Projekte</span>
+      <h2 class="mt-2 text-3xl font-black tracking-tight text-gray-900 dark:text-white md:text-4xl">
+        Meine Projekte im Web
+      </h2>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        Eigene Plattformen, Angebote und digitale Lösungen, die ich konzipiere und weiterentwickle.
+      </p>
+
+      <div class="mt-7 grid gap-5 md:grid-cols-2">
+        <a
+          href="https://vereinleicht.de"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-7 shadow-lg shadow-blue-900/5 transition hover:-translate-y-1 hover:shadow-xl dark:border-blue-900/40 dark:from-blue-950/30 dark:to-gray-950"
+        >
+          <span class="text-xs font-bold uppercase tracking-[0.18em] text-blue-600"
+            >Dienstleistung für Vereine</span
+          >
+          <h3 class="mt-3 text-2xl font-black text-gray-900 dark:text-white">vereinleicht.de</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+            Digitale Lösungen, Websites und Unterstützung, damit Vereinsarbeit leichter wird.
+          </p>
+          <span class="mt-6 inline-flex font-bold text-blue-600"
+            >Angebot ansehen <span class="ml-2 transition group-hover:translate-x-1">→</span></span
+          >
+        </a>
+
+        <a
+          href="https://kielstack.de"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group rounded-3xl border border-purple-100 bg-gradient-to-br from-purple-50 to-white p-7 shadow-lg shadow-purple-900/5 transition hover:-translate-y-1 hover:shadow-xl dark:border-purple-900/40 dark:from-purple-950/30 dark:to-gray-950"
+        >
+          <span class="text-xs font-bold uppercase tracking-[0.18em] text-purple-600"
+            >Software &amp; Webentwicklung</span
+          >
+          <h3 class="mt-3 text-2xl font-black text-gray-900 dark:text-white">kielstack.de</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+            Mein Angebot für moderne, individuelle Software- und Webprojekte aus Kiel.
+          </p>
+          <span class="mt-6 inline-flex font-bold text-purple-600"
+            >Dienstleistungen ansehen
+            <span class="ml-2 transition group-hover:translate-x-1">→</span></span
+          >
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center mb-8">
+      <span class="text-[10px] font-bold tracking-[0.2em] text-blue-500/70 uppercase"
+        >Case Study</span
+      >
+      <h2 class="mt-2 text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-3">
+        PKU Portal
+      </h2>
+      <p class="text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Wie aus persönlicher Erfahrung eine hilfreiche digitale Lösung für Betroffene und Vereine
+        entsteht.
+      </p>
+    </div>
+
+    <div class="flex justify-center">
+      <!-- Herzensprojekt PKU -->
+      <div class="relative group max-w-5xl w-full">
+        <!-- Dekorativer Glow-Effekt im Hintergrund -->
+        <div
+          class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"
+        ></div>
+
+        <a
+          [href]="
+            'https://pku.sonjawaldenspuhl.de?theme=' + (themeService.darkMode() ? 'dark' : 'light')
+          "
+          target="_blank"
+          rel="noopener noreferrer"
+          class="relative grid md:grid-cols-2 bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl transition-all border border-gray-50 dark:border-white/[0.03] w-full"
+        >
+          <!-- Bild-Bereich -->
+          <div class="relative overflow-hidden bg-gray-100 dark:bg-gray-800 min-h-64">
+            <img
+              src="pku_page.png"
+              alt="PKU Portal"
+              class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700"
+            />
+            <!-- Overlay für das Bild -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            <!-- Badge -->
+            <div class="absolute top-4 left-4">
+              <span
+                class="px-3 py-1 bg-white/90 dark:bg-black/90 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 rounded-full shadow-sm"
+              >
+                Praxisbeispiel
+              </span>
+            </div>
+          </div>
+
+          <!-- Content-Bereich -->
+          <div class="p-5 md:p-8 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-6 h-px bg-blue-500/50"></span>
+              <span class="text-[9px] font-bold text-blue-500 uppercase tracking-widest"
+                >Von Betroffenen für Betroffene</span
+              >
+            </div>
+
+            <h3
+              class="text-lg md:text-xl font-black text-gray-900 dark:text-white mb-3 tracking-tight"
+            >
+              PKU Portal
+            </h3>
+
+            <p class="text-gray-600 dark:text-gray-400 mb-4 text-[13px] leading-relaxed">
+              Das Portal macht Informationen rund um Phenylketonurie leichter zugänglich und
+              bereitet komplexe Inhalte verständlich auf. Meine eigene PKU-Erfahrung fließt direkt
+              in Konzeption und Bedienung ein.
+            </p>
+
+            <div class="grid grid-cols-2 gap-3 mb-5 text-xs">
+              <div class="rounded-xl bg-blue-50 dark:bg-blue-950/30 p-3">
+                <strong class="block text-gray-900 dark:text-white mb-1">Für Betroffene</strong>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Verständliche Informationen und einfache Nutzung</span
+                >
+              </div>
+              <div class="rounded-xl bg-purple-50 dark:bg-purple-950/30 p-3">
+                <strong class="block text-gray-900 dark:text-white mb-1">Für Vereine</strong>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Digitales Wissen zugänglich vermitteln</span
+                >
+              </div>
+            </div>
+
+            <!-- Tech Stack Tags -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-2 py-0.5 bg-gray-50 dark:bg-white/[0.03] text-[9px] font-medium text-gray-600 dark:text-gray-300 rounded-md"
+                >Angular</span
+              >
+              <span
+                class="px-2 py-0.5 bg-gray-50 dark:bg-white/[0.03] text-[9px] font-medium text-gray-600 dark:text-gray-300 rounded-md"
+                >Tailwind CSS</span
+              >
+              <span
+                class="px-2 py-0.5 bg-gray-50 dark:bg-white/[0.03] text-[9px] font-medium text-gray-600 dark:text-gray-300 rounded-md"
+                >Firebase</span
+              >
+              <span
+                class="px-2 py-0.5 bg-gray-50 dark:bg-white/[0.03] text-[9px] font-medium text-gray-600 dark:text-gray-300 rounded-md"
+                >Responsive Design</span
+              >
+            </div>
+
+            <div
+              class="flex items-center text-blue-600 dark:text-blue-400 text-[13px] font-bold group/link"
+            >
+              Projekt entdecken
+              <svg
+                class="w-5 h-5 ml-2 transition-transform group-hover/link:translate-x-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

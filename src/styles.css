@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #15803d;
+  --club-green: #166534;
+  --club-mint: #ecfdf5;
+  --club-cream: #fffdf7;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #183226;
+  background: var(--club-cream);
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 9999;
+  transform: translateY(-200%);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #111827;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 0.25);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Einheitliche, gut sichtbare Tastaturmarkierung für alle Bedienelemente. */
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 3px solid #16a34a;
+  outline-offset: 3px;
+}
+
+.dark :where(a, button, input, textarea, select, summary):focus-visible {
+  outline-color: #86efac;
+}
+
+.club-section {
+  position: relative;
+  background-color: var(--club-cream);
+  background-image:
+    radial-gradient(circle at 8% 12%, rgb(187 247 208 / 0.38), transparent 28rem),
+    radial-gradient(circle at 92% 88%, rgb(209 250 229 / 0.34), transparent 30rem);
+}
+
+.dark .club-section {
+  background-color: #07140d;
+  background-image:
+    radial-gradient(circle at 8% 12%, rgb(22 101 52 / 0.16), transparent 28rem),
+    radial-gradient(circle at 92% 88%, rgb(6 78 59 / 0.14), transparent 30rem);
+}
+
+/* Jeder Themenbereich der Startseite nimmt mindestens den sichtbaren Bereich
+   unterhalb des Headers ein. Längere Inhalte dürfen den Bereich weiter aufziehen. */
+app-home main > section,
+app-home main > app-home-challenges > section,
+app-home main > app-services > section,
+app-home main > app-projects > section,
+app-home main > app-home-contact > section {
+  display: flex;
+  min-height: calc(100svh - 4rem);
+  align-items: center;
+  padding-block: clamp(3rem, 7vh, 6rem);
+}
+
+/* Auch die eigenständige Über-mich-Seite richtet jeden Hauptbereich mittig
+   im sichtbaren Platz unterhalb des Headers aus. */
+app-about-page main > app-home-hero > section,
+app-about-page main > app-home-contact > section {
+  display: flex;
+  min-height: calc(100svh - 4rem);
+  align-items: center;
+  padding-block: clamp(3rem, 7vh, 6rem);
+}
+
+/* Durchgehende Seitenlinien auf der maximalen Breite der Tailwind-Container. */
+.site-frame {
+  width: 100%;
+  max-width: 1536px;
+  min-height: 100vh;
+  margin-inline: auto;
+  border-inline: 1px solid rgb(220 238 225);
+}
+
+.dark .site-frame {
+  border-inline-color: rgb(31 41 55);
+}
+
+@media (max-width: 1535px) {
+  .site-frame {
+    border-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
