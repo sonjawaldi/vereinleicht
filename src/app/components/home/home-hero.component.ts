@@ -99,10 +99,10 @@ import { RouterLink } from '@angular/router';
         aria-hidden="true"
       >
         <div
-          class="absolute left-[-10%] top-[-20%] h-[60%] w-[60%] animate-pulse rounded-full bg-green-400/15 blur-[140px]"
+          class="absolute left-[-10%] top-[-20%] h-[60%] w-[60%] rounded-full bg-green-400/15 blur-[140px]"
         ></div>
         <div
-          class="absolute bottom-[-20%] right-[-10%] h-[60%] w-[60%] animate-pulse rounded-full bg-emerald-400/15 blur-[140px] [animation-delay:2s]"
+          class="absolute bottom-[-20%] right-[-10%] h-[60%] w-[60%] rounded-full bg-emerald-400/15 blur-[140px]"
         ></div>
       </div>
     </section>

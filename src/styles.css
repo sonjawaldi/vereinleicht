@@ -14,12 +14,21 @@ html {
   scroll-padding-top: 4.5rem;
 }
 
+html,
+body,
+app-root {
+  width: 100%;
+  min-height: 100%;
+}
+
 [id] {
   scroll-margin-top: 4.5rem;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
   font-family: 'Inter', sans-serif;
   color: #183226;
   background: var(--club-cream);
@@ -62,10 +71,24 @@ body {
 }
 
 .dark .club-section {
-  background-color: #07140d;
+  background-color: transparent;
+  background-image: none;
+}
+
+/* Ein durchgehender, freundlicherer Verlauf statt fast schwarzer Einzelflächen. */
+.dark .club-page {
+  background-color: #07170f;
   background-image:
-    radial-gradient(circle at 8% 12%, rgb(22 101 52 / 0.16), transparent 28rem),
-    radial-gradient(circle at 92% 88%, rgb(6 78 59 / 0.14), transparent 30rem);
+    radial-gradient(circle at 8% 10%, rgb(34 197 94 / 0.28), transparent 36rem),
+    radial-gradient(circle at 92% 45%, rgb(16 185 129 / 0.22), transparent 40rem),
+    radial-gradient(circle at 30% 88%, rgb(74 222 128 / 0.16), transparent 34rem),
+    linear-gradient(145deg, #0b2817 0%, #071b11 48%, #0c2c1d 100%);
+  background-attachment: fixed;
+}
+
+.dark .club-page app-projects > section,
+.dark .club-page app-footer > footer {
+  background-color: transparent;
 }
 
 /* Jeder Themenbereich der Startseite nimmt mindestens den sichtbaren Bereich
@@ -91,23 +114,10 @@ app-about-page main > app-home-contact > section {
   padding-block: clamp(3rem, 7vh, 6rem);
 }
 
-/* Durchgehende Seitenlinien auf der maximalen Breite der Tailwind-Container. */
+/* Die Seitenfläche füllt auf jeder Bildschirmgröße den gesamten Viewport. */
 .site-frame {
   width: 100%;
-  max-width: 1536px;
-  min-height: 100vh;
-  margin-inline: auto;
-  border-inline: 1px solid rgb(220 238 225);
-}
-
-.dark .site-frame {
-  border-inline-color: rgb(31 41 55);
-}
-
-@media (max-width: 1535px) {
-  .site-frame {
-    border-inline: 0;
-  }
+  min-height: 100dvh;
 }
 
 @media (prefers-reduced-motion: reduce) {

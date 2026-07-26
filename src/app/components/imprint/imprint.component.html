@@ -1,34 +1,48 @@
-<div class="min-h-screen bg-white dark:bg-black transition-colors duration-300">
+<div
+  class="min-h-screen bg-[#fffdf7] transition-colors duration-300 dark:bg-[#06110d]"
+>
   <app-header></app-header>
 
-  <main id="main-content" tabindex="-1" class="py-12">
+  <main id="main-content" tabindex="-1" class="relative overflow-hidden py-12 md:py-16">
+    <div
+      class="pointer-events-none absolute -left-24 top-8 h-72 w-72 rounded-full bg-emerald-300/20 blur-3xl dark:bg-emerald-500/10"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute -right-24 bottom-8 h-72 w-72 rounded-full bg-teal-300/20 blur-3xl dark:bg-teal-400/10"
+      aria-hidden="true"
+    ></div>
     <div class="container mx-auto px-6 sm:px-12 lg:px-20">
-      <div class="max-w-3xl mx-auto">
+      <div class="relative mx-auto max-w-3xl">
         <h1
-          class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-12 tracking-tight"
+          class="mb-12 bg-gradient-to-r from-green-700 via-emerald-600 to-teal-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl dark:from-emerald-300 dark:via-green-300 dark:to-teal-300"
         >
           Impressum
         </h1>
 
         <div
-          class="bg-gray-50 dark:bg-gray-900 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-gray-800"
+          class="rounded-3xl border border-emerald-200/80 bg-white/85 p-8 shadow-xl shadow-emerald-950/10 backdrop-blur-sm md:p-12 dark:border-emerald-700/40 dark:bg-[#0b1f17]/90 dark:shadow-black/30"
         >
           <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
-            <h2 class="text-2xl font-bold text-blue-400 mt-0 mb-6">Angaben gemäß § 5 TMG</h2>
+            <h2 class="mt-0 mb-6 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+              Angaben gemäß § 5 TMG
+            </h2>
             <div class="text-lg leading-relaxed space-y-1 mb-10 text-gray-900 dark:text-white">
               <p class="font-semibold text-gray-900 dark:text-white">vereinleicht</p>
               <p>Danewerkstraße 21</p>
               <p>24113 Kiel</p>
             </div>
 
-            <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
-              <h2 class="text-2xl font-bold text-blue-400 mb-6">Kontakt</h2>
+            <div class="border-t border-emerald-200/80 pt-8 dark:border-emerald-800/50">
+              <h2 class="mb-6 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+                Kontakt
+              </h2>
               <p class="text-lg text-gray-900 dark:text-white">
                 <span class="font-semibold text-gray-900 dark:text-white">E-Mail:</span>
                 <a
-                  href="mailto:hallo&#64;vereinleicht.de"
-                  class="ml-2 text-blue-400 hover:underline transition-colors"
-                  >hallo&#64;vereinleicht.de</a
+                  href="mailto:kontakt&#64;vereinleicht.de"
+                  class="ml-2 font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition-colors hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
+                  >kontakt&#64;vereinleicht.de</a
                 >
               </p>
             </div>
