@@ -2,14 +2,9 @@
 <svg width="512" height="512" viewBox="165 -56 410 410" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0.0%" stop-color="rgb(24,84,112)" />
-      <stop offset="14.3%" stop-color="rgb(24,77,107)" />
-      <stop offset="28.6%" stop-color="rgb(26,110,111)" />
-      <stop offset="42.9%" stop-color="rgb(33,148,110)" />
-      <stop offset="57.1%" stop-color="rgb(40,154,107)" />
-      <stop offset="71.4%" stop-color="rgb(61,160,94)" />
-      <stop offset="85.7%" stop-color="rgb(78,162,86)" />
-      <stop offset="100.0%" stop-color="rgb(80,163,86)" />
+      <stop offset="0%" stop-color="#42bfa9" />
+      <stop offset="50%" stop-color="#63d3ad" />
+      <stop offset="100%" stop-color="#8be3ae" />
     </linearGradient>
   </defs>
   <g transform="translate(188,20)">
