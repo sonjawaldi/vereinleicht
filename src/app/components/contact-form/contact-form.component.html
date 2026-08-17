@@ -1,24 +1,40 @@
 <div>
-  <form
-    action="https://formsubmit.co/hallo@vereinleicht.de"
-    method="POST"
-    class="space-y-3 sm:space-y-4"
-  >
-    <input type="hidden" name="_subject" [value]="subject()" />
-    <input type="hidden" name="_template" value="table" />
-    <input type="hidden" name="_next" value="https://vereinleicht.de/#contact" />
+  <form (ngSubmit)="submit()" #kontaktForm="ngForm" class="space-y-3 sm:space-y-4">
+    @if (sent()) {
+      <p
+        role="status"
+        class="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
+      >
+        Vielen Dank für Ihre Nachricht. Ich melde mich zeitnah bei Ihnen.
+      </p>
+    }
+    @if (errorMessage()) {
+      <p
+        role="alert"
+        class="rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800 dark:bg-red-500/10 dark:text-red-300"
+      >
+        {{ errorMessage() }}
+      </p>
+    }
     <div class="grid gap-3 sm:grid-cols-2 sm:gap-4">
       <div>
         <label for="contact-name" class="mb-1.5 block text-sm font-bold">Name *</label>
         <input
           id="contact-name"
           name="name"
+          [(ngModel)]="name"
           type="text"
           required
+          minlength="2"
           autocomplete="name"
           placeholder="Dein Name"
           class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
         />
+        @if (fieldErrors()['name']) {
+          <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+            {{ fieldErrors()['name'] }}
+          </p>
+        }
       </div>
 
       <div>
@@ -26,11 +42,17 @@
         <input
           id="contact-email"
           name="email"
+          [(ngModel)]="email"
           type="email"
           required
           autocomplete="email"
           class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
         />
+        @if (fieldErrors()['email']) {
+          <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+            {{ fieldErrors()['email'] }}
+          </p>
+        }
       </div>
     </div>
 
@@ -38,7 +60,8 @@
       <label for="contact-phone" class="mb-1.5 block text-sm font-bold">Telefonnummer *</label>
       <input
         id="contact-phone"
-        name="telefon"
+        name="phone"
+        [(ngModel)]="phone"
         type="tel"
         required
         autocomplete="tel"
@@ -46,6 +69,11 @@
         placeholder="Deine Telefonnummer"
         class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
       />
+      @if (fieldErrors()['phone']) {
+        <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+          {{ fieldErrors()['phone'] }}
+        </p>
+      }
     </div>
 
     <div>
@@ -55,10 +83,16 @@
       <input
         id="contact-organization"
         name="organization"
+        [(ngModel)]="organization"
         type="text"
         autocomplete="organization"
         class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
       />
+      @if (fieldErrors()['organization']) {
+        <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+          {{ fieldErrors()['organization'] }}
+        </p>
+      }
     </div>
 
     <div>
@@ -69,20 +103,38 @@
         required
         minlength="10"
         rows="4"
-        [value]="message()"
+        [(ngModel)]="message"
         class="w-full resize-y rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
       ></textarea>
+      @if (fieldErrors()['message']) {
+        <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+          {{ fieldErrors()['message'] }}
+        </p>
+      }
+    </div>
+
+    <!-- Honeypot: für Menschen unsichtbar, Bots füllen ihn aus. -->
+    <div class="hidden" aria-hidden="true">
+      <label for="contact-website">Website</label>
+      <input
+        id="contact-website"
+        name="website"
+        [(ngModel)]="website"
+        tabindex="-1"
+        autocomplete="off"
+      />
     </div>
 
     <button
       type="submit"
-      class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-700 px-6 py-3.5 font-bold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:bg-emerald-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300 dark:focus-visible:ring-emerald-900"
+      [disabled]="kontaktForm.form.invalid || sending()"
+      class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-700 px-6 py-3.5 font-bold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:bg-emerald-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300 dark:focus-visible:ring-emerald-900 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
     >
-      Nachricht direkt senden
+      {{ sending() ? 'Wird gesendet …' : 'Nachricht direkt senden' }}
       <span aria-hidden="true">→</span>
     </button>
     <p class="text-center text-[11px] leading-relaxed text-gray-500">
-      Ihre Angaben werden zum Versand über den Formulardienst FormSubmit übermittelt.
+      Ihre Angaben werden ausschließlich zum Versand dieser Nachricht verwendet.
     </p>
   </form>
 </div>

@@ -109,7 +109,7 @@ import type { ContactPrefill } from './home-challenges.component';
             &times;
           </button>
           <h2 id="contact-form-dialog-title" class="sr-only">Kontakt aufnehmen</h2>
-          <app-contact-form [subject]="formPrefill.subject" [message]="formPrefill.message" />
+          <app-contact-form [prefill]="formPrefill.message" />
         </section>
       </div>
     }
