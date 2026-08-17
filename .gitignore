@@ -3,3 +3,5 @@
 /.angular/
 /website-sonja/
 .idea/
+/starter-kit/
+*.log

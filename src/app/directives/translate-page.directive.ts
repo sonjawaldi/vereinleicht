@@ -177,6 +177,7 @@ const EN: Record<string, string> = {
   'Öffnen Sie das Kontaktformular und senden Sie mir Ihre Anfrage in wenigen Schritten.':
     'Open the contact form and send your enquiry in just a few steps.',
   'Kontaktformular öffnen': 'Open contact form',
+  'Kontakt per E-Mail aufnehmen': 'Get in touch by email',
   'Oder direkt per E-Mail schreiben': 'Or write an email directly',
   'Kontaktformular schließen': 'Close contact form',
   'Kontakt aufnehmen': 'Get in touch',
@@ -197,8 +198,11 @@ const EN: Record<string, string> = {
   '(optional)': '(optional)',
   'Ihre Nachricht *': 'Your message *',
   'Nachricht direkt senden': 'Send message',
-  'Ihre Angaben werden zum Versand über den Formulardienst FormSubmit übermittelt.':
-    'Your details are transmitted via the FormSubmit service to send your message.',
+  'Ihre Angaben werden ausschließlich zum Versand dieser Nachricht verwendet.':
+    'Your details are used solely to send this message.',
+  'Wird gesendet …': 'Sending …',
+  'Vielen Dank für Ihre Nachricht. Ich melde mich zeitnah bei Ihnen.':
+    'Thank you for your message. I will get back to you shortly.',
   'Digitale Lösungen speziell für Vereine': 'Digital solutions for associations',
   Impressum: 'Legal notice',
   'Alle Rechte vorbehalten.': 'All rights reserved.',
