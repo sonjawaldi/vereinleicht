@@ -201,6 +201,14 @@ const EN: Record<string, string> = {
   'Ihre Angaben werden ausschließlich zum Versand dieser Nachricht verwendet.':
     'Your details are used solely to send this message.',
   'Wird gesendet …': 'Sending …',
+  'Bitte prüfen Sie die markierten Felder.': 'Please check the highlighted fields.',
+  'Bitte einen Namen angeben.': 'Please enter a name.',
+  'Name muss mindestens 2 Zeichen lang sein.': 'Name must be at least 2 characters long.',
+  'Bitte eine E-Mail-Adresse angeben.': 'Please enter an email address.',
+  'Bitte eine gültige E-Mail-Adresse angeben.': 'Please enter a valid email address.',
+  'Bitte eine Telefonnummer angeben.': 'Please enter a phone number.',
+  'Bitte eine Nachricht eingeben.': 'Please enter a message.',
+  'Nachricht muss mindestens 10 Zeichen lang sein.': 'Message must be at least 10 characters long.',
   'Vielen Dank für Ihre Nachricht. Ich melde mich zeitnah bei Ihnen.':
     'Thank you for your message. I will get back to you shortly.',
   'Digitale Lösungen speziell für Vereine': 'Digital solutions for associations',
