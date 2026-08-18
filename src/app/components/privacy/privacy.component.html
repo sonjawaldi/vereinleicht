@@ -1,23 +1,34 @@
-<div class="min-h-screen bg-white transition-colors duration-300 dark:bg-black">
+<div class="min-h-screen bg-[#fffdf7] transition-colors duration-300 dark:bg-[#06110d]">
   <app-header></app-header>
-  <main id="main-content" tabindex="-1" class="py-12">
+
+  <main id="main-content" tabindex="-1" class="relative overflow-hidden py-12 md:py-16">
+    <div
+      class="pointer-events-none absolute -left-24 top-8 h-72 w-72 rounded-full bg-emerald-300/20 blur-3xl dark:bg-emerald-500/10"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute -right-24 bottom-8 h-72 w-72 rounded-full bg-teal-300/20 blur-3xl dark:bg-teal-400/10"
+      aria-hidden="true"
+    ></div>
     <div class="container mx-auto px-6 sm:px-12 lg:px-20">
-      <article class="mx-auto max-w-3xl text-gray-700 dark:text-gray-300">
+      <article class="relative mx-auto max-w-3xl text-gray-600 dark:text-gray-300">
         <h1
-          class="mb-12 text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl dark:text-white"
+          class="mb-12 bg-gradient-to-r from-green-700 via-emerald-600 to-teal-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-5xl dark:from-emerald-300 dark:via-green-300 dark:to-teal-300"
         >
           Datenschutzerklärung
         </h1>
         <div
-          class="space-y-8 rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-xl md:p-12 dark:border-gray-800 dark:bg-gray-900"
+          class="space-y-8 rounded-3xl border border-emerald-200/80 bg-white/85 p-8 shadow-xl shadow-emerald-950/10 backdrop-blur-sm md:p-12 dark:border-emerald-700/40 dark:bg-[#0b1f17]/90 dark:shadow-black/30"
         >
           <section>
-            <h2 class="mb-3 text-2xl font-bold text-blue-500">Verantwortliche Stelle</h2>
+            <h2 class="mb-3 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+              Verantwortliche Stelle
+            </h2>
             <p>vereinleicht<br />Anschrift wird vor Veröffentlichung ergänzt</p>
             <p class="mt-2">
               E-Mail:
               <a
-                class="text-blue-600 underline dark:text-blue-400"
+                class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition-colors hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
                 href="mailto:hallo&#64;vereinleicht.de"
               >
                 hallo&#64;vereinleicht.de
@@ -26,7 +37,9 @@
           </section>
 
           <section>
-            <h2 class="mb-3 text-2xl font-bold text-blue-500">Hosting und Server-Logdateien</h2>
+            <h2 class="mb-3 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+              Hosting und Server-Logdateien
+            </h2>
             <p>
               Beim Aufruf dieser Website kann der Hosting-Anbieter technisch erforderliche Daten wie
               IP-Adresse, Zeitpunkt, aufgerufene Seite, Referrer, Browser und Betriebssystem in
@@ -36,7 +49,9 @@
           </section>
 
           <section>
-            <h2 class="mb-3 text-2xl font-bold text-blue-500">Google Analytics</h2>
+            <h2 class="mb-3 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+              Google Analytics
+            </h2>
             <p>
               Nach deiner ausdrücklichen Einwilligung nutzt diese Website Google Analytics 4, einen
               Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4,
@@ -46,8 +61,9 @@
             <p class="mt-3">
               Google Analytics verarbeitet insbesondere Seitenaufrufe, technische Geräte- und
               Browserinformationen, ungefähre Standortdaten sowie Nutzungsdaten. Dabei können
-              Cookies wie <code>_ga</code> und <code>_ga_*</code> gesetzt werden. Eine Übermittlung
-              in die USA kann nicht ausgeschlossen werden.
+              Cookies wie <code class="rounded bg-emerald-50 px-1.5 py-0.5 font-mono text-sm text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200">_ga</code> und
+              <code class="rounded bg-emerald-50 px-1.5 py-0.5 font-mono text-sm text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200">_ga_*</code>
+              gesetzt werden. Eine Übermittlung in die USA kann nicht ausgeschlossen werden.
             </p>
             <p class="mt-3">
               Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1
@@ -58,7 +74,7 @@
             <p class="mt-3">
               Weitere Informationen:
               <a
-                class="text-blue-600 underline dark:text-blue-400"
+                class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition-colors hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
                 href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -67,7 +83,7 @@
               </a>
               und
               <a
-                class="text-blue-600 underline dark:text-blue-400"
+                class="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 transition-colors hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
                 href="https://support.google.com/analytics/answer/12017362"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -78,16 +94,21 @@
           </section>
 
           <section>
-            <h2 class="mb-3 text-2xl font-bold text-blue-500">Speicherung der Einwilligung</h2>
+            <h2 class="mb-3 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+              Speicherung der Einwilligung
+            </h2>
             <p>
               Deine Auswahl wird im lokalen Speicher deines Browsers unter
-              <code>analytics-consent</code> gespeichert. Dies ist notwendig, damit die Website
-              deine Entscheidung bei späteren Besuchen berücksichtigt.
+              <code class="rounded bg-emerald-50 px-1.5 py-0.5 font-mono text-sm text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200">analytics-consent</code>
+              gespeichert. Dies ist notwendig, damit die Website deine Entscheidung bei späteren
+              Besuchen berücksichtigt.
             </p>
           </section>
 
           <section>
-            <h2 class="mb-3 text-2xl font-bold text-blue-500">Deine Rechte</h2>
+            <h2 class="mb-3 text-2xl font-bold text-emerald-700 dark:text-emerald-300">
+              Deine Rechte
+            </h2>
             <p>
               Du hast im Rahmen der gesetzlichen Voraussetzungen insbesondere Rechte auf Auskunft,
               Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und
@@ -99,5 +120,6 @@
       </article>
     </div>
   </main>
+
   <app-footer></app-footer>
 </div>

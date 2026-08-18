@@ -10,11 +10,14 @@
     <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
       Digitale Lösungen, die Ehrenamt leichter machen.
     </p>
-    <nav class="mt-7 flex flex-wrap justify-center gap-6" aria-label="Rechtliche Informationen">
-      <a routerLink="/impressum" class="text-xs text-gray-500 hover:text-emerald-600">Impressum</a>
-      <a routerLink="/barrierefreiheit" class="text-xs text-gray-500 hover:text-emerald-600">Barrierefreiheit</a>
-      <a routerLink="/datenschutz" class="text-xs text-gray-500 hover:text-emerald-600">Datenschutz</a>
-      <button type="button" class="text-xs text-gray-500 hover:text-emerald-600" (click)="consent.openSettings()">
+    <nav
+      class="mt-7 flex flex-wrap items-center justify-center gap-6"
+      aria-label="Rechtliche Informationen"
+    >
+      <a routerLink="/impressum" class="legal-link">Impressum</a>
+      <a routerLink="/barrierefreiheit" class="legal-link">Barrierefreiheit</a>
+      <a routerLink="/datenschutz" class="legal-link">Datenschutz</a>
+      <button type="button" class="legal-link" (click)="consent.openSettings()">
         Cookie-Einstellungen
       </button>
     </nav>

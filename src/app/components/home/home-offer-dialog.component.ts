@@ -51,7 +51,7 @@ import { RouterLink } from '@angular/router';
             id="website-offer-title"
             class="offer-title max-w-md font-black leading-tight tracking-tight"
           >
-            Die ersten 3 Websites erstelle ich kostenlos.
+            Die nächsten 3 Websites erstelle ich kostenlos.
           </h2>
           <p
             id="website-offer-description"
@@ -218,6 +218,10 @@ import { RouterLink } from '@angular/router';
         margin-top: 0;
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .offer-condition:nth-child(5) {
+        grid-column: 1 / -1;
+      }
     }
   `,
 })
@@ -231,21 +235,22 @@ export class HomeOfferDialogComponent implements OnDestroy {
     'Es handelt sich um eine einmalige, kostenlose Erstellung im Rahmen meiner Portfolio-Aktion.',
     'Auf der Website wird dezent im Footer darauf hingewiesen, dass sie von mir erstellt wurde.',
     'Die Kosten für Domain und Hosting übernehmen Sie selbst.',
-    'Der Umfang beträgt maximal 5 Seiten; Sonderfunktionen (z. B. Mitgliederdatenbank) sind nicht enthalten.',
+    'Ausgenommen sind größere Organisationen und Verbände sowie Webseiten mit hohem Funktions- oder Verwaltungsaufwand.',
+    'Maximal 5 Seiten. Individuelle Funktionen wie Mitgliederverwaltung, Portale oder Buchungssysteme sind nicht enthalten.',
   ];
 
   dialogOpen = true;
 
   get description(): string {
     if (this.audience === 'business') {
-      return 'Damit Ihr Unternehmen online professionell sichtbar wird und neue Kundinnen und Kunden erreicht. Ich gestalte Ihnen eine moderne, mobil optimierte Website, mit der Sie bei Google gefunden werden. Für die ersten drei Unternehmen kostenlos.';
+      return 'Damit Ihr Unternehmen online professionell sichtbar wird und neue Kundinnen und Kunden erreicht. Ich gestalte Ihnen eine moderne, mobil optimierte Website, mit der Sie bei Google gefunden werden. Für die nächsten drei Unternehmen kostenlos.';
     }
 
     if (this.audience === 'portal') {
-      return 'Ich gestalte eine moderne, mobil optimierte Website, mit der Sie bei Google sichtbar werden – für die ersten drei Vereine oder Unternehmen kostenlos. Wählen Sie den passenden Bereich aus.';
+      return 'Ich gestalte eine moderne, mobil optimierte Website, mit der Sie bei Google sichtbar werden. Für die nächsten drei Vereine oder Unternehmen kostenlos. Wählen Sie den passenden Bereich aus.';
     }
 
-    return 'Damit Ihr Verein online gefunden wird – von neuen Mitgliedern, Besuchern und Unterstützern. Ich gestalte Ihnen eine moderne, mobil optimierte Website, mit der Sie bei Google sichtbar werden. Für die ersten drei Vereine kostenlos.';
+    return 'Damit Ihr Verein online von neuen Mitgliedern, Besuchern und Unterstützern gefunden wird. Ich gestalte Ihnen eine moderne, mobil optimierte Website, mit der Sie bei Google sichtbar werden. Für die nächsten drei Vereine kostenlos.';
   }
 
   constructor() {

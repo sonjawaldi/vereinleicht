@@ -1,7 +1,7 @@
 import { Component, computed, inject, output, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
 import { LanguageService } from '../../services/language.service';
-import { createContactMailto } from '../../utils/contact-mailto';
 
 export interface ContactPrefill {
   subject: string;
@@ -19,6 +19,7 @@ interface Challenge {
 @Component({
   selector: 'app-home-challenges',
   standalone: true,
+  imports: [RouterLink],
   template: `
     <section id="challenges" class="club-section py-14 transition-colors duration-300 md:py-16">
       <div class="container mx-auto px-6 sm:px-12 lg:px-20">
@@ -37,39 +38,50 @@ interface Challenge {
           </p>
         </header>
 
-        <fieldset
-          class="mx-auto mt-9 max-w-5xl divide-y divide-emerald-100 overflow-hidden rounded-3xl border border-emerald-200 bg-white/90 shadow-xl shadow-emerald-950/10 dark:divide-emerald-900/30 dark:border-emerald-900/60 dark:bg-emerald-950/15"
-        >
-          <legend class="sr-only">Typische Herausforderungen im Vereinsalltag auswählen</legend>
-          @for (challenge of challenges; track challenge.id) {
-            <label
-              class="group flex cursor-pointer items-start gap-4 px-5 py-4 transition-colors hover:bg-emerald-50/60 has-[:checked]:bg-emerald-50 dark:hover:bg-emerald-950/20 dark:has-[:checked]:bg-emerald-950/30 sm:px-7 sm:py-5"
-            >
-              <input
-                type="checkbox"
-                name="challenge"
-                [value]="challenge.id"
-                [checked]="isSelected(challenge.id)"
-                (change)="toggle(challenge.id, $event)"
-                class="mt-0.5 h-6 w-6 shrink-0 cursor-pointer rounded-md border-2 border-emerald-300 text-emerald-600 shadow-sm focus:ring-emerald-500 dark:border-emerald-700 dark:bg-gray-950"
-              />
-              <span class="min-w-0">
-                <span
-                  class="block text-sm font-semibold leading-relaxed text-gray-800 dark:text-gray-200 sm:text-base"
-                  >{{ challenge.label }}</span
-                >
-                @if (isSelected(challenge.id)) {
+        <div>
+          <fieldset
+            class="mx-auto mt-9 max-w-5xl divide-y divide-emerald-100 overflow-hidden rounded-3xl border border-emerald-200 bg-white/90 shadow-xl shadow-emerald-950/10 dark:divide-emerald-900/30 dark:border-emerald-900/60 dark:bg-emerald-950/15"
+          >
+            <legend class="sr-only">Typische Herausforderungen im Vereinsalltag auswählen</legend>
+            @for (challenge of challenges; track challenge.id) {
+              <label
+                class="group flex cursor-pointer items-start gap-4 px-5 py-4 transition-colors hover:bg-emerald-50/60 has-[:checked]:bg-emerald-50 dark:hover:bg-emerald-950/20 dark:has-[:checked]:bg-emerald-950/30 sm:px-7 sm:py-5"
+              >
+                <input
+                  type="checkbox"
+                  name="challenge"
+                  [value]="challenge.id"
+                  [checked]="isSelected(challenge.id)"
+                  (change)="toggle(challenge.id, $event)"
+                  class="mt-0.5 h-6 w-6 shrink-0 cursor-pointer rounded-md border-2 border-emerald-300 text-emerald-600 shadow-sm focus:ring-emerald-500 dark:border-emerald-700 dark:bg-gray-950"
+                />
+                <span class="min-w-0">
                   <span
-                    class="mt-2 block border-l-2 border-emerald-400 pl-3 text-sm leading-relaxed text-emerald-800 dark:text-emerald-300"
-                    aria-live="polite"
+                    class="block text-sm font-semibold leading-relaxed text-gray-800 dark:text-gray-200 sm:text-base"
+                    >{{ challenge.label }}</span
                   >
-                    {{ challenge.response }}
-                  </span>
-                }
-              </span>
-            </label>
-          }
-        </fieldset>
+                  @if (isSelected(challenge.id)) {
+                    <span
+                      class="mt-2 block border-l-2 border-emerald-400 pl-3 text-sm leading-relaxed text-emerald-800 dark:text-emerald-300"
+                      aria-live="polite"
+                    >
+                      {{ challenge.response }}
+                    </span>
+                  }
+                </span>
+              </label>
+            }
+          </fieldset>
+
+          <a
+            [routerLink]="['/']"
+            fragment="contact"
+            class="mx-auto mt-6 flex w-fit items-center justify-center rounded-2xl bg-emerald-700 px-7 py-3.5 font-bold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:bg-emerald-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
+          >
+            Kontakt aufnehmen
+            <span class="ml-2" aria-hidden="true">→</span>
+          </a>
+        </div>
 
         @if (selectedChallenges().length) {
           <div
@@ -93,11 +105,6 @@ interface Challenge {
                 Projekt besprechen <span class="ml-2" aria-hidden="true">→</span>
               </button>
             }
-            <a
-              [href]="selectionMailto()"
-              class="mx-auto mt-3 block w-fit text-sm font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 dark:text-emerald-400"
-              >Oder direkt per E-Mail schreiben</a
-            >
           </div>
         }
 
@@ -179,19 +186,17 @@ export class HomeChallengesComponent {
     const topics = this.selectedChallenges().map(challenge =>
       isGerman ? challenge.topic : challenge.topicEn,
     );
+    const selectedItems = this.selectedChallenges()
+      .map(challenge => `- ${challenge.label}`)
+      .join('\n');
     return {
       subject: isGerman
         ? `Projektanfrage: ${this.joinTopics(topics, 'und')}`
         : 'Project enquiry based on the website selection',
       message: isGerman
-        ? `Hallo vereinleicht-Team,\n\nwir interessieren uns für Unterstützung bei: ${this.joinTopics(topics, 'und')}.\n\nWir würden gerne besprechen, welche Lösung zu unserem Verein passt.\n\nViele Grüße\n`
-        : `Hello vereinleicht team,\n\nWe are interested in support with: ${this.joinTopics(topics, 'and')}.\n\nWe would like to discuss which solution would be right for our association.\n\nKind regards,\n`,
+        ? `Hallo Frau Waldenspuhl,\n\nwir möchten gerne Kontakt mit Ihnen aufnehmen. Folgende Themen beschäftigen unseren Verein aktuell:\n\n${selectedItems}\n\nWir interessieren uns daher für Unterstützung bei ${this.joinTopics(topics, 'und')} und würden gerne besprechen, welche Lösung zu unserem Verein passt.\n\nMit freundlichen Grüßen\n[Ihr Name]\n[Ihre Telefonnummer]`
+        : `Hello Ms Waldenspuhl,\n\nWe would like to get in touch. These topics currently concern our association:\n\n${selectedItems}\n\nWe are interested in support with ${this.joinTopics(topics, 'and')} and would like to discuss which solution would suit our association.\n\nKind regards,\n[Your name]\n[Your phone number]`,
     };
-  });
-
-  readonly selectionMailto = computed(() => {
-    const prefill = this.prefill();
-    return createContactMailto(this.language.language(), prefill);
   });
 
   isSelected(id: string): boolean {

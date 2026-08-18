@@ -23,14 +23,14 @@
 
 .nav-trigger {
   display: flex;
-  width: 11.5rem;
   height: 2.5rem;
   cursor: pointer;
   list-style: none;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-radius: 0.75rem;
   padding: 0 1rem;
+  white-space: nowrap;
   color: rgb(21 101 52);
   font-size: 0.875rem;
   font-weight: 700;
