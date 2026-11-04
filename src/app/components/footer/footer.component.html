@@ -1,26 +1,19 @@
-<footer class="border-t border-gray-200 bg-white py-10 transition-colors dark:border-gray-800 dark:bg-black">
-  <div class="container mx-auto px-6 text-center sm:px-12 lg:px-20">
-    <a
-      routerLink="/"
-      class="footer-wordmark"
-      aria-label="vereinleicht Startseite"
-    >
-      <img src="vereinleicht-logo-clean.svg" alt="" aria-hidden="true" />
-    </a>
-    <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-      Digitale Lösungen, die Ehrenamt leichter machen.
-    </p>
-    <nav
-      class="mt-7 flex flex-wrap items-center justify-center gap-6"
-      aria-label="Rechtliche Informationen"
-    >
-      <a routerLink="/impressum" class="legal-link">Impressum</a>
-      <a routerLink="/barrierefreiheit" class="legal-link">Barrierefreiheit</a>
-      <a routerLink="/datenschutz" class="legal-link">Datenschutz</a>
-      <button type="button" class="legal-link" (click)="consent.openSettings()">
-        Cookie-Einstellungen
-      </button>
-    </nav>
-    <p class="mt-7 text-xs text-gray-500">&copy; 2026 vereinleicht. Alle Rechte vorbehalten.</p>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <a routerLink="/" class="site-footer__logo" aria-label="vereinleicht Startseite">
+        <img src="vereinleicht-logo-dark.svg" alt="" width="1280" height="260" />
+      </a>
+      <p>Digitale Lösungen, die Ehrenamt leichter machen.</p>
+    </div>
+    <div>
+      <nav aria-label="Rechtliche Informationen">
+        <a routerLink="/impressum">Impressum</a>
+        <a routerLink="/barrierefreiheit">Barrierefreiheit</a>
+        <a routerLink="/datenschutz">Datenschutz</a>
+        <button type="button" (click)="consent.openSettings()">Cookie-Einstellungen</button>
+      </nav>
+      <small>&copy; 2026 vereinleicht · Kielstack – Sonja Waldenspuhl</small>
+    </div>
   </div>
 </footer>

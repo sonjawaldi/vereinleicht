@@ -5,9 +5,11 @@ import { FooterComponent } from '../footer/footer.component';
 import { ServicesComponent } from '../services/services.component';
 import { HomeHeroComponent } from './home-hero.component';
 import { HomeChallengesComponent } from './home-challenges.component';
+import { HomeProcessComponent } from './home-process.component';
+import { HomeAboutComponent } from './home-about.component';
+import { HomeOfferComponent } from './home-offer.component';
+import { HomeFaqComponent } from './home-faq.component';
 import { HomeContactComponent } from './home-contact.component';
-import { HomeOfferDialogComponent } from './home-offer-dialog.component';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +20,11 @@ import { RouterLink } from '@angular/router';
     ServicesComponent,
     HomeHeroComponent,
     HomeChallengesComponent,
+    HomeProcessComponent,
+    HomeAboutComponent,
+    HomeOfferComponent,
+    HomeFaqComponent,
     HomeContactComponent,
-    HomeOfferDialogComponent,
-    RouterLink,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

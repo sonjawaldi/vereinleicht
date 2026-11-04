@@ -2,11 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Farben des Redesigns. Der Dunkelmodus überschreibt nur die Werte. */
 :root {
-  --primary-color: #15803d;
-  --club-green: #166534;
-  --club-mint: #ecfdf5;
-  --club-cream: #fffdf7;
+  --canvas: #fbf6ee;
+  --surface: #ffffff;
+  --sand: #f4eadb;
+  --mint: #ddf1e4;
+  --peach: #fbe0d2;
+  --sun: #ffe7a8;
+  --sky: #dcebf5;
+  --heading: #1f2d3a;
+  --body: #4c525c;
+  --muted: #6b655d;
+  --primary: #1e7a55;
+  --primary-hover: #17654a;
+  --primary-ink: #1a6e4c;
+  --on-primary: #ffffff;
+  --accent: #f4b942;
+  --on-accent: #1f2d3a;
+  --coral: #d9663f;
+  /* Für kleine Schrift: --coral erreicht auf den farbigen Flächen kein AA. */
+  --coral-ink: #a03f1c;
+  --border: #eadfcf;
+  --path: #dccbb2;
+  --shadow: rgb(80 55 20 / 0.12);
+  --tape: rgb(255 255 255 / 0.55);
+  --foot: #1f2d3a;
+  --font-serif: 'Fraunces Variable', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+}
+
+.dark {
+  --canvas: #17140f;
+  --surface: #221e18;
+  --sand: #2a241c;
+  --mint: #1c3329;
+  --peach: #3a2a22;
+  --sun: #3a3120;
+  --sky: #1e2b35;
+  --heading: #f7efe3;
+  --body: #d2c9bb;
+  --muted: #a89f91;
+  --primary: #4fd39d;
+  --primary-hover: #7be0b5;
+  --primary-ink: #7be0b5;
+  --on-primary: #0b2a1c;
+  --accent: #f6c35a;
+  --coral: #f0957a;
+  --coral-ink: #f0957a;
+  --border: #3a3228;
+  --path: #3a3228;
+  --shadow: rgb(0 0 0 / 0.5);
+  --tape: rgb(255 255 255 / 0.12);
+  --foot: #0e0c09;
 }
 
 html {
@@ -29,9 +77,17 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
-  color: #183226;
-  background: var(--club-cream);
+  font-family: 'Nunito Variable', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--body);
+  background: var(--canvas);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
 }
 
 .skip-link {
@@ -54,70 +110,168 @@ body {
 
 /* Einheitliche, gut sichtbare Tastaturmarkierung für alle Bedienelemente. */
 :where(a, button, input, textarea, select, summary):focus-visible {
-  outline: 3px solid #16a34a;
+  outline: 3px solid var(--primary-ink);
   outline-offset: 3px;
 }
 
-.dark :where(a, button, input, textarea, select, summary):focus-visible {
-  outline-color: #86efac;
-}
-
-.club-section {
+/* ---------- Gemeinsame Bausteine der Startseite ---------- */
+.vl-section {
   position: relative;
-  background-color: var(--club-cream);
-  background-image:
-    radial-gradient(circle at 8% 12%, rgb(187 247 208 / 0.38), transparent 28rem),
-    radial-gradient(circle at 92% 88%, rgb(209 250 229 / 0.34), transparent 30rem);
+  padding: clamp(72px, 8.4vw, 120px) clamp(20px, 8.4vw, 120px);
 }
 
-.dark .club-section {
-  background-color: transparent;
-  background-image: none;
+.vl-section--sand {
+  background: var(--sand);
 }
 
-/* Ein durchgehender, freundlicherer Verlauf statt fast schwarzer Einzelflächen. */
-.dark .club-page {
-  background-color: #07170f;
-  background-image:
-    radial-gradient(circle at 8% 10%, rgb(34 197 94 / 0.28), transparent 36rem),
-    radial-gradient(circle at 92% 45%, rgb(16 185 129 / 0.22), transparent 40rem),
-    radial-gradient(circle at 30% 88%, rgb(74 222 128 / 0.16), transparent 34rem),
-    linear-gradient(145deg, #0b2817 0%, #071b11 48%, #0c2c1d 100%);
-  background-attachment: fixed;
+.vl-wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.dark .club-page app-projects > section,
-.dark .club-page app-footer > footer {
-  background-color: transparent;
-}
-
-/* Jeder Themenbereich der Startseite nimmt mindestens den sichtbaren Bereich
-   unterhalb des Headers ein. Längere Inhalte dürfen den Bereich weiter aufziehen. */
-app-home main > section,
-app-home main > app-home-challenges > section,
-app-home main > app-services > section,
-app-home main > app-projects > section,
-app-home main > app-home-contact > section {
+.vl-head {
   display: flex;
-  min-height: calc(100svh - 4rem);
+  max-width: 780px;
+  flex-direction: column;
   align-items: center;
-  padding-block: clamp(3rem, 7vh, 6rem);
+  gap: 16px;
+  margin: 0 auto 64px;
+  text-align: center;
 }
 
-/* Auch die eigenständige Über-mich-Seite richtet jeden Hauptbereich mittig
-   im sichtbaren Platz unterhalb des Headers aus. */
-app-about-page main > app-home-hero > section,
-app-about-page main > app-home-contact > section {
-  display: flex;
-  min-height: calc(100svh - 4rem);
-  align-items: center;
-  padding-block: clamp(3rem, 7vh, 6rem);
+.vl-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 3.75vw, 54px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--heading);
 }
 
-/* Die Seitenfläche füllt auf jeder Bildschirmgröße den gesamten Viewport. */
-.site-frame {
-  width: 100%;
-  min-height: 100dvh;
+.vl-lead {
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.7;
+}
+
+.vl-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-hand);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--coral-ink);
+}
+
+.vl-btn {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  padding: 0 28px;
+  font-size: 16.5px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease;
+}
+
+.vl-btn:hover {
+  transform: translateY(-2px);
+}
+
+.vl-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.vl-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vl-btn--primary {
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 4px 0 rgb(0 0 0 / 0.18);
+}
+
+.vl-btn--primary:hover {
+  background: var(--primary-hover);
+}
+
+.vl-btn--secondary {
+  border-color: var(--heading);
+  color: var(--heading);
+}
+
+.vl-btn--accent {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 4px 0 rgb(0 0 0 / 0.18);
+}
+
+.vl-check {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--heading);
+}
+
+.vl-check i {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  place-items: center;
+  margin-top: 1px;
+  border-radius: 8px;
+  background: var(--mint);
+}
+
+.vl-check svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--primary-ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vl-icon {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--heading);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 700px) {
+  .vl-head {
+    align-items: flex-start;
+    margin-bottom: 40px;
+    text-align: left;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -133,4 +287,21 @@ app-about-page main > app-home-contact > section {
   html {
     scroll-behavior: auto;
   }
+
+  .vl-btn:hover {
+    transform: none;
+  }
+}
+
+/* Die Seitenfläche füllt auf jeder Bildschirmgröße den gesamten Viewport. */
+.site-frame {
+  width: 100%;
+  min-height: 100dvh;
+}
+
+/* Noch nicht umgestellte, derzeit nicht verlinkte Seiten (about, portal). */
+.club-page,
+.club-section {
+  position: relative;
+  background: var(--canvas);
 }

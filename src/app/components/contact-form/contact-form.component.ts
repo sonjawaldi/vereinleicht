@@ -75,7 +75,7 @@ export class ContactFormComponent implements OnInit {
       form.control.markAllAsTouched();
       this.sent.set(false);
       this.fieldErrors.set(clientErrors);
-      this.errorMessage.set('Bitte prüfen Sie die markierten Felder.');
+      this.errorMessage.set('Bitte prüft die markierten Felder.');
       return;
     }
 

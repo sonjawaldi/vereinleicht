@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { provideRouter, withInMemoryScrolling, withRouterConfig } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { routes } from './app.routes';
@@ -14,6 +14,8 @@ export const appConfig: ApplicationConfig = {
         anchorScrolling: 'enabled',
         scrollPositionRestoration: 'enabled',
       }),
+      // Damit ein Anker-Link auch beim zweiten Klick wieder dorthin scrollt.
+      withRouterConfig({ onSameUrlNavigation: 'reload' }),
     ),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),

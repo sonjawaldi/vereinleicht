@@ -11,76 +11,37 @@ import type { ContactPrefill } from './home-challenges.component';
   standalone: true,
   imports: [ContactFormComponent],
   template: `
-    <section id="contact" class="club-section py-16 transition-colors duration-300 md:py-20">
-      <div class="container mx-auto px-6 sm:px-12 lg:px-20">
-        <div
-          class="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-green-700 via-emerald-800 to-teal-900 shadow-[0_24px_70px_rgba(20,83,45,0.25)] dark:from-green-950 dark:via-emerald-950 dark:to-teal-950"
-        >
-          <div class="relative z-10 grid lg:grid-cols-[1.15fr_0.85fr]">
-            <div class="p-7 text-white sm:p-10 lg:p-12">
-              <div
-                class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-100"
-              >
-                <span class="h-1.5 w-1.5 rounded-full bg-emerald-300"></span>Bereit für Ihre Idee
-              </div>
-              <h2
-                class="mt-5 max-w-xl text-3xl font-black leading-tight tracking-tight md:text-4xl"
-              >
-                Machen wir Ihren Verein digital stärker.
-              </h2>
-              <p class="mt-4 max-w-xl text-sm leading-relaxed text-emerald-50 md:text-base">
-                Sie haben eine Idee, ein konkretes Problem oder wissen noch nicht genau, wo Sie
-                anfangen sollen? Schreiben Sie mir – wir finden gemeinsam den passenden nächsten
-                Schritt.
-              </p>
-              <ul
-                class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3"
-                aria-label="Vorteile der Kontaktaufnahme"
-              >
-                @for (benefit of benefits; track benefit) {
-                  <li class="flex items-center gap-2 text-xs font-bold text-white/90">
-                    <span
-                      class="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-emerald-300"
-                      >✓</span
-                    >{{ benefit }}
-                  </li>
-                }
-              </ul>
-            </div>
-            <div
-              class="m-3 mt-0 flex flex-col justify-center rounded-[1.5rem] bg-white p-6 text-gray-900 shadow-2xl dark:bg-gray-950 dark:text-white sm:p-8 lg:ml-0 lg:mt-3"
-            >
-              <span
-                class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300"
-                >Direkter Kontakt</span
-              >
-              <h3 class="mt-3 text-xl font-black tracking-tight">
-                Erzählen Sie mir von Ihrem Projekt.
-              </h3>
-              <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                @if (contactFormEnabled) {
-                  Öffnen Sie das Kontaktformular und senden Sie mir Ihre Anfrage in wenigen
-                  Schritten.
-                } @else {
-                  Schreiben Sie mir Ihre Anfrage direkt per E-Mail.
-                }
-              </p>
-              @if (contactFormEnabled) {
-                <button
-                  type="button"
-                  class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-700 px-6 py-4 font-bold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:bg-emerald-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
-                  (click)="showForm()"
-                >
-                  Kontakt aufnehmen <span aria-hidden="true">→</span>
-                </button>
-              }
-              <a
-                [href]="contactMailto()"
-                class="mt-6 text-center text-sm font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 dark:text-emerald-400"
-                >Direkt per E-Mail schreiben</a
-              >
-            </div>
+    <section id="contact" class="vl-section">
+      <div class="vl-wrap contact">
+        <div class="contact__main">
+          <span class="vl-kicker">Bereit für eure Idee?</span>
+          <h2 class="vl-h2">Lasst uns euren Verein digital stärker machen.</h2>
+          <p class="vl-lead">
+            Ihr habt eine Idee, ein konkretes Problem oder wisst noch nicht, wo ihr anfangen sollt?
+            Schreibt mir einfach – wir finden gemeinsam den passenden nächsten Schritt.
+          </p>
+          <div class="contact__actions">
+            @if (contactFormEnabled) {
+              <button type="button" class="vl-btn vl-btn--primary" (click)="showForm()">
+                Kontakt aufnehmen
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+              </button>
+            }
+            <a [href]="contactMailto()" class="vl-btn vl-btn--secondary">Direkt per E-Mail</a>
           </div>
+        </div>
+        <div class="chat" role="group" aria-label="Beispiel-Unterhaltung">
+          <span class="chat__who"><b aria-hidden="true">V</b>Euer Verein</span>
+          <p class="chat__msg">
+            Hallo Sonja, unsere Website ist ziemlich alt. Wo fangen wir am besten an?
+          </p>
+          <p class="chat__msg chat__msg--me">
+            Hallo ihr! Am besten mit einem kurzen Kennenlernen – unverbindlich, persönlich und
+            verständlich.
+          </p>
+          <span class="chat__who chat__who--me">Sonja<b aria-hidden="true">SW</b></span>
         </div>
       </div>
     </section>
@@ -93,7 +54,7 @@ import type { ContactPrefill } from './home-challenges.component';
       >
         <section
           id="contact-form-dialog"
-          class="relative max-h-[calc(100dvh-1rem)] w-full max-w-xl overflow-y-auto rounded-2xl bg-white p-4 text-gray-900 shadow-2xl dark:bg-gray-950 dark:text-white sm:max-h-[calc(100dvh-2rem)] sm:rounded-3xl sm:p-6 lg:p-7"
+          class="relative max-h-[calc(100dvh-1rem)] w-full max-w-xl overflow-y-auto rounded-2xl bg-vl-surface p-4 text-vl-heading shadow-2xl sm:max-h-[calc(100dvh-2rem)] sm:rounded-3xl sm:p-6 lg:p-7"
           role="dialog"
           aria-modal="true"
           aria-labelledby="contact-form-dialog-title"
@@ -102,7 +63,7 @@ import type { ContactPrefill } from './home-challenges.component';
         >
           <button
             type="button"
-            class="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-xl text-gray-600 transition-colors hover:bg-gray-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300 dark:bg-white/10 dark:text-gray-300 dark:hover:bg-white/15 sm:right-4 sm:top-4 sm:h-10 sm:w-10 sm:text-2xl"
+            class="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-[var(--sand)] text-xl text-vl-heading sm:right-4 sm:top-4 sm:h-10 sm:w-10 sm:text-2xl"
             aria-label="Kontaktformular schließen"
             (click)="closeDialog()"
           >
@@ -114,6 +75,98 @@ import type { ContactPrefill } from './home-challenges.component';
       </div>
     }
   `,
+  styles: `
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      align-items: center;
+      gap: 56px;
+      border: 1.5px solid var(--border);
+      border-radius: 40px;
+      background: var(--surface);
+      padding: clamp(28px, 4.5vw, 64px);
+    }
+
+    .contact__main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .contact__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .chat {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat__msg {
+      max-width: 340px;
+      border-radius: 22px 22px 22px 6px;
+      background: var(--sand);
+      padding: 16px 20px;
+      font-size: 16.5px;
+      line-height: 1.55;
+      color: var(--heading);
+    }
+
+    .chat__msg--me {
+      align-self: flex-end;
+      border-radius: 22px 22px 6px 22px;
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .chat__who {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .chat__who--me {
+      align-self: flex-end;
+    }
+
+    .chat__who b {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--peach);
+      font-family: var(--font-serif);
+      color: var(--heading);
+    }
+
+    @media (max-width: 960px) {
+      .contact {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        border-radius: 30px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .contact__actions {
+        flex-direction: column;
+        align-self: stretch;
+      }
+
+      .contact__actions .vl-btn {
+        width: 100%;
+      }
+    }
+  `,
 })
 export class HomeContactComponent implements OnDestroy {
   private readonly document = inject(DOCUMENT);
@@ -121,7 +174,6 @@ export class HomeContactComponent implements OnDestroy {
   readonly contactFormEnabled = CONTACT_FORM_ENABLED;
   readonly contactMailto = computed(() => createContactMailto(this.language.language()));
   private previouslyFocusedElement: HTMLElement | null = null;
-  readonly benefits = ['Unverbindlich', 'Persönlich', 'Verständlich'];
   dialogOpen = false;
   formPrefill: ContactPrefill = { subject: 'Neue Kontaktanfrage über die Website', message: '' };
 

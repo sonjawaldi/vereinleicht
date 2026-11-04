@@ -35,19 +35,14 @@
 
     <link rel="icon" type="image/svg+xml" href="vereinleicht-people-favicon.svg?v=6" />
     <link rel="apple-touch-icon" href="vereinleicht-people-favicon.svg?v=6" />
-    <link
-      rel="shortcut icon"
-      href="vereinleicht-people-favicon.svg?v=6"
-      type="image/svg+xml"
-    />
+    <link rel="shortcut icon" href="vereinleicht-people-favicon.svg?v=6" type="image/svg+xml" />
 
     <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
       if (
         localStorage.getItem('theme') === 'dark' ||
         (!localStorage.getItem('theme') &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches) ||
-        !localStorage.getItem('theme')
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
         document.documentElement.classList.add('dark');
       } else {

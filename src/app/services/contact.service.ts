@@ -37,27 +37,26 @@ export function describeFormError(error: HttpErrorResponse): FormErrorState {
     for (const detail of body.details) {
       fieldErrors[detail.field] = detail.message;
     }
-    return { message: 'Bitte prüfen Sie die markierten Felder.', fieldErrors };
+    return { message: 'Bitte prüft die markierten Felder.', fieldErrors };
   }
 
   if (error.status === 429) {
     return {
-      message:
-        'Es wurden zu viele Nachrichten gesendet. Bitte versuchen Sie es später noch einmal.',
+      message: 'Es wurden zu viele Nachrichten gesendet. Bitte versucht es später noch einmal.',
       fieldErrors: {},
     };
   }
 
   if (error.status === 0) {
     return {
-      message: 'Der Server ist gerade nicht erreichbar. Bitte versuchen Sie es später noch einmal.',
+      message: 'Der Server ist gerade nicht erreichbar. Bitte versucht es später noch einmal.',
       fieldErrors: {},
     };
   }
 
   return {
     message:
-      'Ihre Nachricht konnte leider nicht gesendet werden. Schreiben Sie mir gern direkt an hallo@vereinleicht.de.',
+      'Eure Nachricht konnte leider nicht gesendet werden. Schreibt mir gern direkt an hallo@vereinleicht.de.',
     fieldErrors: {},
   };
 }

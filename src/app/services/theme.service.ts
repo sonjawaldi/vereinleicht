@@ -8,26 +8,21 @@ export class ThemeService {
     typeof window !== 'undefined'
       ? localStorage.getItem('theme') === 'dark' ||
           (!localStorage.getItem('theme') &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches) ||
-          !localStorage.getItem('theme')
-      : true,
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+      : false,
   );
 
   constructor() {
     effect(() => {
       if (typeof window !== 'undefined') {
-        const isDark = this.darkMode();
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        if (isDark) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+        document.documentElement.classList.toggle('dark', this.darkMode());
       }
     });
   }
 
+  /** Nur eine bewusste Wahl wird gespeichert, sonst gilt die Systemeinstellung. */
   toggleDarkMode() {
     this.darkMode.update(v => !v);
+    localStorage.setItem('theme', this.darkMode() ? 'dark' : 'light');
   }
 }

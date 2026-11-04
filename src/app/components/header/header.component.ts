@@ -16,6 +16,14 @@ export class HeaderComponent {
   languageService = inject(LanguageService);
   isMenuOpen = false;
 
+  readonly navItems = [
+    { fragment: 'home', label: 'Start' },
+    { fragment: 'services', label: 'Leistungen' },
+    { fragment: 'approach', label: "So läuft's" },
+    { fragment: 'about', label: 'Über mich' },
+    { fragment: 'faq', label: 'Fragen' },
+  ];
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }

@@ -1,48 +1,21 @@
-<div class="club-page min-h-screen bg-[#fffdf7] transition-colors duration-300">
+<div class="min-h-screen bg-vl-canvas">
   <app-header area="verein" />
-  <app-home-offer-dialog
-    (appointmentRequested)="
-      contactSection.showForm({
-        subject: 'Termin für das kostenlose Website-Angebot',
-        message:
-          'Ich interessiere mich für eine der ersten drei kostenlosen Websites und möchte gerne einen Termin vereinbaren.',
-      })
-    "
-  />
   <main id="main-content" tabindex="-1">
     <app-home-hero />
     <app-home-challenges (contactFormRequested)="contactSection.showForm($event)" />
     <app-services />
-    <section id="approach" class="club-section py-14 transition-colors duration-300 md:py-16">
-      <div class="container mx-auto px-6 sm:px-12 lg:px-20">
-        <div
-          class="mx-auto max-w-5xl rounded-[2rem] border border-emerald-200/80 bg-white/80 p-7 text-center shadow-xl shadow-emerald-900/10 backdrop-blur-sm dark:border-emerald-800/50 dark:bg-emerald-950/25 md:p-10"
-        >
-          <span
-            class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300"
-          >
-            Zusammenarbeit auf Augenhöhe
-          </span>
-          <h2 class="mt-3 text-3xl font-black text-gray-900 dark:text-white md:text-4xl">
-            Technik, die im Ehrenamt funktioniert
-          </h2>
-          <p
-            class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 md:text-base"
-          >
-            Wir starten mit dem, was schon da ist. Gemeinsam vereinfachen wir nur die Dinge, die
-            wirklich Zeit kosten – mit festen Ansprechpartnern, verständlichen Entscheidungen und
-            einer sauberen Übergabe an euer Team.
-          </p>
-          <a
-            [routerLink]="['/']"
-            fragment="contact"
-            class="mt-7 inline-flex items-center justify-center rounded-2xl bg-emerald-700 px-7 py-3.5 font-bold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:bg-emerald-800"
-          >
-            Erstgespräch vereinbaren <span class="ml-2" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <app-home-process />
+    <app-home-about />
+    <app-home-offer
+      (appointmentRequested)="
+        contactSection.showForm({
+          subject: 'Termin für das kostenlose Website-Angebot',
+          message:
+            'Hallo Sonja,\n\nwir interessieren uns für eine der ersten drei kostenlosen Vereins-Websites und würden gerne einen Termin vereinbaren.\n\nViele Grüße',
+        })
+      "
+    />
+    <app-home-faq />
     <app-home-contact #contactSection />
   </main>
   <app-footer />

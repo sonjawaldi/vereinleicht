@@ -6,106 +6,326 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <section
-      id="home"
-      class="club-section relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden"
-    >
-      <div
-        class="container relative z-10 mx-auto grid w-full items-center gap-14 px-6 py-16 sm:px-12 lg:grid-cols-[1.15fr_0.85fr] lg:px-20"
-      >
-        <div class="text-center lg:text-left">
-          <div
-            class="mb-7 inline-flex rounded-full border border-emerald-200 bg-emerald-50/90 px-5 py-2 text-xs font-black uppercase tracking-[0.18em] text-emerald-700 shadow-sm dark:border-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300 md:text-sm"
-          >
-            Vereinsarbeit. Einfacher gemacht.
-          </div>
-          <h1
-            class="mb-8 text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Mehr Zeit für das,
-            <span
-              class="bg-gradient-to-r from-green-700 via-emerald-600 to-teal-600 bg-clip-text text-transparent"
-              >was euren Verein bewegt.</span
-            >
+    <section id="home" class="vl-section hero">
+      <div class="vl-wrap hero__grid">
+        <div class="hero__text">
+          <span class="vl-kicker">
+            Hallo, liebe Vereine!
+            <svg class="hero__arrow" viewBox="0 0 34 20" aria-hidden="true">
+              <path d="M2 14c8-10 18-12 28-6M24 3l6 5-7 3"></path>
+            </svg>
+          </span>
+          <h1 class="hero__title">
+            Mehr Zeit für das, was euren Verein
+            <span class="hero__mark"
+              >bewegt.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M3 14c40-9 90-12 194-6"></path></svg
+            ></span>
           </h1>
-          <p
-            class="mx-auto mb-5 max-w-5xl text-lg leading-relaxed text-gray-600 dark:text-gray-300 md:text-xl lg:mx-0 lg:text-2xl"
-          >
-            vereinleicht bringt Website, Mitgliederverwaltung und eure täglichen Abläufe in eine
-            verständliche digitale Struktur.
+          <p class="hero__lead">
+            Ich bringe eure Website, die Mitgliederverwaltung und eure täglichen Abläufe in eine
+            Struktur, die alle verstehen – persönlich, barrierearm und ohne Fachchinesisch.
           </p>
-          <p
-            class="mx-auto mb-12 max-w-3xl text-base text-gray-500 dark:text-gray-400 md:text-lg lg:mx-0"
-          >
-            Persönlich begleitet, barrierearm gedacht und so einfach, dass alle mitmachen können.
-          </p>
-          <div class="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap lg:justify-start">
-            <a
-              [routerLink]="['/']"
-              fragment="services"
-              class="group flex items-center justify-center gap-3 rounded-2xl bg-emerald-700 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:bg-emerald-800"
-            >
-              Leistungen ansehen
-              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true"
-                >→</span
-              >
+          <div class="hero__actions">
+            <a [routerLink]="['/']" fragment="contact" class="vl-btn vl-btn--primary">
+              Erstgespräch vereinbaren
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
+              </svg>
             </a>
-            <a
-              [routerLink]="['/']"
-              fragment="approach"
-              class="flex items-center justify-center rounded-2xl border border-emerald-500/40 bg-emerald-50 px-8 py-4 text-lg font-bold text-emerald-800 shadow-sm transition-all hover:-translate-y-0.5 hover:bg-emerald-100 dark:border-emerald-500/50 dark:bg-emerald-950/40 dark:text-emerald-300"
+            <a [routerLink]="['/']" fragment="services" class="vl-btn vl-btn--secondary"
+              >Was ich für euch mache</a
             >
-              So arbeiten wir
-            </a>
-            <a
-              [routerLink]="['/']"
-              fragment="contact"
-              class="flex items-center justify-center rounded-2xl border border-emerald-200 bg-white/90 px-8 py-4 text-lg font-bold text-gray-900 shadow-sm transition-all hover:-translate-y-0.5 hover:border-emerald-500/50 dark:border-emerald-900 dark:bg-gray-900 dark:text-white"
-            >
-              Kontakt aufnehmen
-            </a>
           </div>
         </div>
 
-        <div class="relative mx-auto mb-8 w-full max-w-md lg:mb-0 lg:max-w-none">
-          <div
-            class="absolute -inset-4 rotate-3 rounded-[2.5rem] bg-emerald-200/70 dark:bg-emerald-900/40"
-            aria-hidden="true"
-          ></div>
-          <figure
-            class="relative overflow-hidden rounded-[2rem] border-4 border-white bg-white shadow-2xl shadow-emerald-950/20 dark:border-emerald-950"
-          >
+        <div class="hero__visual">
+          <figure class="hero__photo">
             <img
               src="sonja-portrait.jpeg"
-              alt="Sonja Waldenspuhl am Strand"
-              width="1280"
-              height="1920"
-              class="aspect-[4/5] w-full object-cover object-center"
+              alt="Sonja Waldenspuhl lacht am Ostseestrand"
+              width="1366"
+              height="2048"
             />
           </figure>
-          <div
-            class="absolute -bottom-6 left-4 right-4 rounded-2xl border border-emerald-100 bg-white/95 p-4 shadow-xl backdrop-blur dark:border-emerald-800 dark:bg-emerald-950/95 sm:left-auto sm:right-6 sm:max-w-xs"
-          >
-            <p class="font-black text-emerald-800 dark:text-emerald-200">Hi, ich bin Sonja.</p>
-            <p class="mt-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              Eure persönliche Ansprechpartnerin für digitale Vereinsarbeit.
-            </p>
+          <a [routerLink]="['/']" fragment="offer" class="hero__sticker">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <path
+                class="hero__star-fill"
+                d="M100 16 134.1 57.1 183.7 76.8 155.2 121.9 151.7 175.2 100 162 48.3 175.2 44.8 121.9 16.3 76.8 65.9 57.1Z"
+              ></path>
+            </svg>
+            <span class="hero__sticker-text">
+              <strong>3×</strong>
+              <span>Vereins-Websites kostenlos</span>
+            </span>
+          </a>
+          <div class="hero__hi">
+            <span class="hero__avatar" aria-hidden="true">SW</span>
+            <span>
+              <strong>Hi, ich bin Sonja!</strong>
+              <small>Eure persönliche Ansprechpartnerin für digitale Vereinsarbeit.</small>
+            </span>
           </div>
         </div>
       </div>
-
-      <div
-        class="pointer-events-none absolute left-1/2 top-0 -z-0 h-full w-full -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <div
-          class="absolute left-[-10%] top-[-20%] h-[60%] w-[60%] rounded-full bg-green-400/15 blur-[140px]"
-        ></div>
-        <div
-          class="absolute bottom-[-20%] right-[-10%] h-[60%] w-[60%] rounded-full bg-emerald-400/15 blur-[140px]"
-        ></div>
-      </div>
     </section>
+  `,
+  styles: `
+    .hero {
+      overflow: hidden;
+      padding-top: clamp(24px, 4vw, 56px);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 64px;
+    }
+
+    .hero__text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 26px;
+    }
+
+    .hero__arrow {
+      width: 34px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+    }
+
+    .hero__title {
+      font-size: clamp(44px, 5.3vw, 76px);
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--heading);
+    }
+
+    .hero__mark {
+      position: relative;
+      white-space: nowrap;
+      color: var(--primary-ink);
+    }
+
+    .hero__mark svg {
+      position: absolute;
+      bottom: -0.18em;
+      left: -2%;
+      width: 104%;
+      height: 0.36em;
+      overflow: visible;
+    }
+
+    .hero__mark path {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 6;
+      stroke-linecap: round;
+    }
+
+    .hero__lead {
+      max-width: 540px;
+      font-size: clamp(17.5px, 1.4vw, 20px);
+      line-height: 1.7;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero__visual {
+      position: relative;
+      height: 600px;
+    }
+
+    .hero__photo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 40px;
+      height: 540px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      border-radius: 36px;
+      background: linear-gradient(150deg, var(--mint), var(--sun));
+    }
+
+    .hero__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 42%;
+    }
+
+    .hero__sticker {
+      position: absolute;
+      top: -30px;
+      right: -24px;
+      display: block;
+      width: 165px;
+      height: 165px;
+      color: var(--on-accent);
+      transform: rotate(-10deg);
+      transition: transform 150ms ease;
+    }
+
+    .hero__sticker:hover {
+      transform: rotate(-4deg) scale(1.04);
+    }
+
+    .hero__sticker svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 8px 12px rgb(0 0 0 / 0.28));
+    }
+
+    .hero__sticker path {
+      stroke-linejoin: round;
+    }
+
+    .hero__star-fill {
+      fill: var(--accent);
+      stroke: var(--accent);
+      stroke-width: 8;
+    }
+
+    .hero__sticker-text {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      display: flex;
+      width: 84px;
+      flex-direction: column;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero__sticker strong {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .hero__hi {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      display: flex;
+      max-width: 300px;
+      align-items: center;
+      gap: 14px;
+      border-radius: 24px;
+      background: var(--surface);
+      padding: 18px 20px;
+      box-shadow: 0 18px 40px var(--shadow);
+      transform: rotate(-3deg);
+    }
+
+    .hero__avatar {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      flex: none;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--peach);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .hero__hi strong {
+      display: block;
+      font-family: var(--font-hand);
+      font-size: 28px;
+      line-height: 1;
+      color: var(--heading);
+    }
+
+    .hero__hi small {
+      display: block;
+      margin-top: 4px;
+      font-size: 14px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    @media (max-width: 960px) {
+      .hero__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+      }
+
+      .hero__visual {
+        width: 100%;
+        max-width: 560px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero__actions {
+        flex-direction: column;
+        align-self: stretch;
+      }
+
+      .hero__actions .vl-btn {
+        width: 100%;
+      }
+
+      .hero__visual {
+        height: 470px;
+      }
+
+      .hero__photo {
+        left: 0;
+        height: 420px;
+        border-radius: 28px;
+      }
+
+      .hero__sticker {
+        top: -26px;
+        right: -10px;
+        width: 136px;
+        height: 136px;
+      }
+
+      .hero__sticker-text {
+        width: 70px;
+        font-size: 10px;
+      }
+
+      .hero__sticker strong {
+        font-size: 23px;
+      }
+
+      .hero__hi {
+        bottom: 0;
+        max-width: 250px;
+        padding: 14px 16px;
+      }
+
+      .hero__hi strong {
+        font-size: 24px;
+      }
+    }
   `,
 })
 export class HomeHeroComponent {}

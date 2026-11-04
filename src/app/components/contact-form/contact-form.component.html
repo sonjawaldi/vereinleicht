@@ -5,7 +5,7 @@
         role="status"
         class="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300"
       >
-        Vielen Dank für Ihre Nachricht. Ich melde mich zeitnah bei Ihnen.
+        Vielen Dank für eure Nachricht. Ich melde mich zeitnah bei euch.
       </p>
     }
     @if (errorMessage()) {
@@ -28,7 +28,7 @@
           minlength="2"
           autocomplete="name"
           placeholder="Dein Name"
-          class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
+          class="w-full rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
         />
         @if (fieldErrors()['name']) {
           <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
@@ -47,7 +47,7 @@
           required
           email
           autocomplete="email"
-          class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
+          class="w-full rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
         />
         @if (fieldErrors()['email']) {
           <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
@@ -68,7 +68,7 @@
         autocomplete="tel"
         inputmode="tel"
         placeholder="Deine Telefonnummer"
-        class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
+        class="w-full rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
       />
       @if (fieldErrors()['phone']) {
         <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
@@ -79,7 +79,7 @@
 
     <div>
       <label for="contact-organization" class="mb-1.5 block text-sm font-bold">
-        Verein <span class="font-normal text-gray-500">(optional)</span>
+        Verein <span class="font-normal text-vl-muted">(optional)</span>
       </label>
       <input
         id="contact-organization"
@@ -87,7 +87,7 @@
         [(ngModel)]="organization"
         type="text"
         autocomplete="organization"
-        class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
+        class="w-full rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
       />
       @if (fieldErrors()['organization']) {
         <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
@@ -97,7 +97,7 @@
     </div>
 
     <div>
-      <label for="contact-message" class="mb-1.5 block text-sm font-bold">Ihre Nachricht *</label>
+      <label for="contact-message" class="mb-1.5 block text-sm font-bold">Eure Nachricht *</label>
       <textarea
         id="contact-message"
         name="message"
@@ -105,7 +105,7 @@
         minlength="10"
         rows="4"
         [(ngModel)]="message"
-        class="w-full resize-y rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-emerald-950"
+        class="w-full resize-y rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
       ></textarea>
       @if (fieldErrors()['message']) {
         <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
@@ -126,16 +126,12 @@
       />
     </div>
 
-    <button
-      type="submit"
-      [disabled]="sending()"
-      class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-700 px-6 py-3.5 font-bold text-white shadow-lg shadow-emerald-900/20 transition-all hover:-translate-y-0.5 hover:bg-emerald-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300 dark:focus-visible:ring-emerald-900 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
-    >
+    <button type="submit" [disabled]="sending()" class="vl-btn vl-btn--primary w-full">
       {{ sending() ? 'Wird gesendet …' : 'Nachricht direkt senden' }}
       <span aria-hidden="true">→</span>
     </button>
-    <p class="text-center text-[11px] leading-relaxed text-gray-500">
-      Ihre Angaben werden ausschließlich zum Versand dieser Nachricht verwendet.
+    <p class="text-center text-xs leading-relaxed text-vl-muted">
+      Eure Angaben werden ausschließlich zum Versand dieser Nachricht verwendet.
     </p>
   </form>
 </div>

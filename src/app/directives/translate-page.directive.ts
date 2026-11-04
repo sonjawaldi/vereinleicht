@@ -239,6 +239,149 @@ const EN: Record<string, string> = {
   'Die von Ihnen gesuchte Seite existiert leider nicht oder wurde verschoben.':
     'The page you are looking for does not exist or has been moved.',
   'Zurück zur Startseite': 'Back to home page',
+  "So läuft's": 'How it works',
+  Fragen: 'Questions',
+  'Meldet euch': 'Get in touch',
+  'Hallo, liebe Vereine!': 'Hello, associations!',
+  'Mehr Zeit für das, was euren Verein': 'More time for what moves your',
+  'bewegt.': 'association.',
+  'Ich bringe eure Website, die Mitgliederverwaltung und eure täglichen Abläufe in eine Struktur, die alle verstehen – persönlich, barrierearm und ohne Fachchinesisch.':
+    'I bring your website, membership administration and daily processes into a structure everyone understands – personal, accessible and free of jargon.',
+  'Erstgespräch vereinbaren': 'Arrange an initial call',
+  'Was ich für euch mache': 'What I do for you',
+  'Sonja Waldenspuhl lacht am Ostseestrand': 'Sonja Waldenspuhl laughing on a Baltic Sea beach',
+  'Vereins-Websites kostenlos': 'association websites for free',
+  'Hi, ich bin Sonja!': "Hi, I'm Sonja!",
+  'Eure persönliche Ansprechpartnerin für digitale Vereinsarbeit.':
+    'Your personal contact for digital association work.',
+  'Ehrlich gesagt …': 'Honestly …',
+  'Kennt ihr das?': 'Sound familiar?',
+  'Diese Zettel hängen in fast jedem Vereinsheim. Welcher davon könnte bei euch hängen? Tippt an, was passt.':
+    'These notes hang in almost every clubhouse. Which one could be hanging in yours? Tap whatever fits.',
+  'Trifft bei uns zu:': 'Applies to us:',
+  'Kennen wir!': 'We know this!',
+  'Auch bei euch?': 'You too?',
+  '„Unsere Website ist von 2014.“': '“Our website is from 2014.”',
+  'Seit Jahren nicht aktualisiert – und auf dem Handy kaum zu bedienen.':
+    'Not updated in years – and barely usable on a phone.',
+  'Wir schauen gemeinsam, was bleiben kann und wo sich eine Modernisierung lohnt.':
+    'Together, we look at what can stay and where modernising pays off.',
+  '„Welche Excel-Liste ist die aktuelle?“': '“Which spreadsheet is the current one?”',
+  'Die Mitglieder stehen in mehreren Listen – und niemand hat den Überblick.':
+    'Members are spread across several lists – and nobody has the full picture.',
+  'Ich prüfe mit euch, welche Abläufe sich sinnvoll digitalisieren lassen.':
+    'I check with you which processes are worth digitising.',
+  '„Kennt sich jemand mit Technik aus?“': '“Does anyone understand the tech?”',
+  'Euch fehlt das Know-how, um gute Entscheidungen zu Website und Software zu treffen.':
+    'You lack the expertise to make good decisions about your website and software.',
+  'Ich übersetze Technik in verständliche Entscheidungen und begleite die Umsetzung.':
+    'I turn technology into clear decisions and support the implementation.',
+  '„Wo sind die Zugangsdaten hin?“': '“Where did the login details go?”',
+  'Beim Vorstandswechsel gehen Zugänge, Abläufe und wichtiges Wissen verloren.':
+    'When the board changes, logins, processes and important knowledge get lost.',
+  'Wir schaffen klare Strukturen, damit Zugänge und Wissen im Verein bleiben.':
+    'We create clear structures so logins and knowledge stay in the association.',
+  'Ich kenne diese Herausforderungen aus eigener Erfahrung – und baue Lösungen, die dazu passen: bezahlbar, einfach zu pflegen und langfristig tragfähig.':
+    'I know these challenges from personal experience – and build solutions that fit: affordable, easy to maintain and sustainable.',
+  'Zeig mir die Lösung': 'Show me the solution',
+  'Vier Dinge, die euch das Vereinsleben leichter machen':
+    'Four things that make association life easier',
+  'Von der ersten Bestandsaufnahme bis zur langfristigen Betreuung – pragmatisch, nachvollziehbar und passend zu eurem Ehrenamt.':
+    'From the first assessment to long-term support – pragmatic, transparent and suited to your volunteer work.',
+  'Schritt eins': 'Step one',
+  'Vereins-Check': 'Association check',
+  'Wir sortieren gemeinsam Ziele, Zuständigkeiten und Werkzeuge – und machen den nächsten Schritt klar.':
+    'Together we sort out goals, responsibilities and tools – and make the next step clear.',
+  'Euer Auftritt': 'Your presence',
+  Vereinswebsite: 'Association website',
+  'Ein moderner, barrierearmer Auftritt, den euer Team selbst aktuell halten kann.':
+    'A modern, accessible website your team can keep up to date itself.',
+  'Weniger Zettel': 'Less paper',
+  'Mitglieder & Abläufe': 'Members & processes',
+  'Klare Prozesse für Anfragen, Beitritte, Termine, Dokumente und eure interne Zusammenarbeit.':
+    'Clear processes for enquiries, new members, dates, documents and your internal collaboration.',
+  'Auf Dauer': 'For the long run',
+  'Sicher weiterarbeiten': 'Keep working safely',
+  'Updates, Dokumentation, Übergaben und erreichbarer Support für euren Vereinsalltag.':
+    'Updates, documentation, handovers and reachable support for your everyday work.',
+  'Zusammenarbeit auf Augenhöhe': 'Working together as equals',
+  "So läuft's bei uns": 'How we work together',
+  'Wir starten mit dem, was schon da ist, und vereinfachen nur, was wirklich Zeit kostet – mit fester Ansprechpartnerin, verständlichen Entscheidungen und einer sauberen Übergabe an euer Team.':
+    'We start with what already exists and only simplify what really costs time – with one fixed contact, clear decisions and a clean handover to your team.',
+  Kennenlernen: 'Getting to know each other',
+  'Ein kostenloses Erstgespräch – ich höre zu, was euren Verein bewegt.':
+    'A free initial call – I listen to what matters to your association.',
+  'bei Kaffee oder per Video': 'over coffee or by video',
+  'Was ist schon da, was fehlt, was kostet euch unnötig Zeit?':
+    'What already exists, what is missing, what wastes your time?',
+  'Website und Abläufe entstehen Schritt für Schritt und immer mit euch abgestimmt.':
+    'Website and processes take shape step by step, always agreed with you.',
+  'Übergabe & Support': 'Handover & support',
+  'Verständliche Einweisung, Dokumentation und Hilfe, wenn ihr sie braucht.':
+    'Clear onboarding, documentation and help when you need it.',
+  'Porträt von Sonja Waldenspuhl': 'Portrait of Sonja Waldenspuhl',
+  'Das bin ich!': "That's me!",
+  'Hi, ich bin Sonja.': "Hi, I'm Sonja.",
+  'Ich bin eure persönliche Ansprechpartnerin für digitale Vereinsarbeit. Die typischen Stolpersteine im Verein kenne ich aus eigener Erfahrung – deshalb baue ich nichts, was nach der Übergabe niemand mehr bedienen kann.':
+    'I am your personal contact for digital association work. I know the typical stumbling blocks from personal experience – so I build nothing that nobody can operate after the handover.',
+  'Eine feste Ansprechpartnerin statt wechselnder Hotline':
+    'One fixed contact instead of a changing hotline',
+  'Verständliche Sprache statt Fachchinesisch': 'Plain language instead of jargon',
+  'Lösungen, die auch nach dem Vorstandswechsel funktionieren':
+    'Solutions that still work after the board changes',
+  Kennenlernangebot: 'Introductory offer',
+  'Die ersten 3 Vereins-Websites mache ich kostenlos.':
+    'I build the first 3 association websites for free.',
+  'Damit euer Verein online gefunden wird – von neuen Mitgliedern, Besucher:innen und Unterstützer:innen. Modern, fürs Handy optimiert und bei Google sichtbar.':
+    'So your association can be found online – by new members, visitors and supporters. Modern, optimised for phones and visible on Google.',
+  'Noch 2 von 3 Plätzen frei': '2 of 3 places still available',
+  'Jetzt unverbindlich Termin sichern': 'Book a no-obligation appointment',
+  'Das Kleingedruckte – ganz groß': 'The small print – in large type',
+  'Einmalige, kostenlose Erstellung im Rahmen meiner Portfolio-Aktion':
+    'One-off, free creation as part of my portfolio campaign',
+  'Ein dezenter Hinweis im Footer, dass die Website von mir ist':
+    'A discreet footer note that I made the website',
+  'Domain und Hosting bezahlt ihr selbst': 'You pay for domain and hosting yourselves',
+  'Bis zu 5 Seiten – ohne Sonderfunktionen wie Mitgliederverwaltung, Portale oder Buchungssysteme':
+    'Up to 5 pages – without special features such as membership administration, portals or booking systems',
+  'Nicht für größere Organisationen und Verbände oder Websites mit hohem Funktions- oder Verwaltungsaufwand':
+    'Not for larger organisations and federations or websites with high functional or administrative effort',
+  'Gut zu wissen': 'Good to know',
+  'Eure Fragen': 'Your questions',
+  'Was kostet die Website im Kennenlernangebot?':
+    'What does the website cost in the introductory offer?',
+  'Für die ersten drei Vereine ist die Erstellung kostenlos. Ihr übernehmt nur die Kosten für Domain und Hosting.':
+    'For the first three associations, creation is free. You only cover domain and hosting costs.',
+  'Wie viele Seiten sind enthalten?': 'How many pages are included?',
+  'Bis zu 5 Seiten. Sonderfunktionen wie Mitgliederverwaltung, Portale oder Buchungssysteme sind im Kennenlernangebot nicht enthalten.':
+    'Up to 5 pages. Special features such as membership administration, portals or booking systems are not part of the introductory offer.',
+  'Können wir die Website selbst pflegen?': 'Can we maintain the website ourselves?',
+  'Ja. Die Website ist so gebaut, dass euer Team sie selbst aktuell halten kann. Bei der Übergabe bekommt ihr eine verständliche Einweisung und eine Dokumentation.':
+    'Yes. The website is built so your team can keep it up to date. At handover you get clear onboarding and documentation.',
+  'Steht irgendwo, dass die Seite von vereinleicht ist?':
+    'Does it say anywhere that the site is by vereinleicht?',
+  'Ja, im Footer steht ein dezenter Hinweis, dass die Website von mir erstellt wurde. Das gehört zum Kennenlernangebot dazu.':
+    'Yes, a discreet footer note says that I created the website. That is part of the introductory offer.',
+  'Bereit für eure Idee?': 'Ready for your idea?',
+  'Lasst uns euren Verein digital stärker machen.': "Let's strengthen your association digitally.",
+  'Ihr habt eine Idee, ein konkretes Problem oder wisst noch nicht, wo ihr anfangen sollt? Schreibt mir einfach – wir finden gemeinsam den passenden nächsten Schritt.':
+    'Do you have an idea, a specific problem, or not know where to start? Just write to me – together we will find the right next step.',
+  'Direkt per E-Mail': 'Directly by email',
+  'Beispiel-Unterhaltung': 'Example conversation',
+  'Euer Verein': 'Your association',
+  'Hallo Sonja, unsere Website ist ziemlich alt. Wo fangen wir am besten an?':
+    'Hello Sonja, our website is pretty old. Where should we start?',
+  'Hallo ihr! Am besten mit einem kurzen Kennenlernen – unverbindlich, persönlich und verständlich.':
+    'Hello! Best with a short introduction – no obligation, personal and clear.',
+  'Digitale Lösungen, die Ehrenamt leichter machen.':
+    'Digital solutions that make volunteering easier.',
+  'Cookie-Einstellungen': 'Cookie settings',
+  'Eure Nachricht *': 'Your message *',
+  'Eure Angaben werden ausschließlich zum Versand dieser Nachricht verwendet.':
+    'Your details are used solely to send this message.',
+  'Vielen Dank für eure Nachricht. Ich melde mich zeitnah bei euch.':
+    'Thank you for your message. I will get back to you shortly.',
+  'Bitte prüft die markierten Felder.': 'Please check the highlighted fields.',
 };
 
 @Directive({ selector: '[appTranslatePage]', standalone: true })

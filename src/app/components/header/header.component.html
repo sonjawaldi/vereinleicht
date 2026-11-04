@@ -1,84 +1,84 @@
-<header
-  class="site-header sticky top-0 z-50 w-full overflow-hidden border-b border-emerald-900/20 shadow-sm shadow-emerald-950/10 backdrop-blur-xl"
->
-  <div
-    class="container mx-auto flex h-16 items-center justify-between px-4 sm:h-20 sm:px-8 lg:px-12"
-  >
+<header class="site-header">
+  <div class="site-header__bar">
     <a
       routerLink="/"
       fragment="home"
-      class="logo-link flex items-center"
+      (click)="closeMenus('home')"
+      class="site-logo"
       aria-label="vereinleicht Startseite"
     >
+      <img class="site-logo__light" src="vereinleicht-logo.svg" alt="" width="1280" height="260" />
       <img
-        src="vereinleicht-logo-clean.svg"
-        alt="vereinleicht"
-        width="740"
-        height="440"
-        class="h-12 w-auto object-contain sm:h-14"
+        class="site-logo__dark"
+        src="vereinleicht-logo-dark.svg"
+        alt=""
+        width="1280"
+        height="260"
       />
     </a>
 
-    <div class="ml-auto flex items-center gap-2">
-      <nav class="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
-        <a
-          routerLink="/"
-          fragment="challenges"
-          (click)="closeMenus('challenges')"
-          class="nav-trigger"
-          >Euer Alltag</a
-        >
-        <a routerLink="/" fragment="services" (click)="closeMenus('services')" class="nav-trigger"
-          >Leistungen</a
-        >
-        <a routerLink="/" fragment="approach" (click)="closeMenus('approach')" class="nav-trigger"
-          >Arbeitsweise</a
-        >
-        <a routerLink="/" fragment="contact" (click)="closeMenus('contact')" class="nav-trigger"
-          >Kontakt</a
-        >
-      </nav>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      @for (item of navItems; track item.fragment) {
+        <a routerLink="/" [fragment]="item.fragment" (click)="closeMenus(item.fragment)">{{
+          item.label
+        }}</a>
+      }
+    </nav>
 
+    <div class="site-actions">
       <button
         type="button"
         (click)="themeService.toggleDarkMode()"
-        class="rounded-xl border border-emerald-200 bg-emerald-50 p-2 text-emerald-800 dark:border-emerald-900/60 dark:bg-emerald-950/50 dark:text-emerald-200"
+        class="site-theme"
         aria-label="Farbschema wechseln"
       >
-        <span aria-hidden="true">{{ themeService.darkMode() ? '☀' : '☾' }}</span>
+        <svg class="site-theme__moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path>
+        </svg>
+        <svg class="site-theme__sun" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2"
+          ></path>
+        </svg>
       </button>
+      <a
+        routerLink="/"
+        fragment="contact"
+        (click)="closeMenus('contact')"
+        class="vl-btn vl-btn--primary site-cta"
+        >Meldet euch</a
+      >
       <button
         type="button"
         (click)="toggleMenu()"
-        class="rounded-xl p-2 text-emerald-800 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-950/50 lg:hidden"
+        class="site-menu"
         aria-label="Navigation öffnen oder schließen"
         [attr.aria-expanded]="isMenuOpen"
       >
-        <span class="text-xl" aria-hidden="true">{{ isMenuOpen ? '×' : '☰' }}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          @if (isMenuOpen) {
+            <path d="M6 6l12 12M18 6L6 18"></path>
+          } @else {
+            <path d="M4 7h16M4 12h16M4 17h10"></path>
+          }
+        </svg>
       </button>
     </div>
   </div>
 
   @if (isMenuOpen) {
-    <nav
-      class="grid gap-1 border-t border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800/40 dark:bg-emerald-950 lg:hidden"
-      aria-label="Mobile Hauptnavigation"
-    >
+    <nav class="site-mobile-nav" aria-label="Mobile Hauptnavigation">
+      @for (item of navItems; track item.fragment) {
+        <a routerLink="/" [fragment]="item.fragment" (click)="closeMenus(item.fragment)">{{
+          item.label
+        }}</a>
+      }
       <a
         routerLink="/"
-        fragment="challenges"
-        (click)="closeMenus('challenges')"
-        class="mobile-nav-item"
-        >Euer Alltag</a
-      >
-      <a routerLink="/" fragment="services" (click)="closeMenus('services')" class="mobile-nav-item"
-        >Leistungen</a
-      >
-      <a routerLink="/" fragment="approach" (click)="closeMenus('approach')" class="mobile-nav-item"
-        >Arbeitsweise</a
-      >
-      <a routerLink="/" fragment="contact" (click)="closeMenus('contact')" class="mobile-nav-item"
-        >Kontakt</a
+        fragment="contact"
+        (click)="closeMenus('contact')"
+        class="vl-btn vl-btn--primary"
+        >Meldet euch</a
       >
     </nav>
   }
