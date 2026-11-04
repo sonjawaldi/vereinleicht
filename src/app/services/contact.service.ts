@@ -57,7 +57,7 @@ export function describeFormError(error: HttpErrorResponse): FormErrorState {
 
   return {
     message:
-      'Ihre Nachricht konnte leider nicht gesendet werden. Schreiben Sie mir gern direkt an hallo@vereinleicht.de.',
+      'Ihre Nachricht konnte leider nicht gesendet werden. Schreiben Sie mir gern direkt an business@vereinleicht.de.',
     fieldErrors: {},
   };
 }
