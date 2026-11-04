@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
         <figure class="polaroid">
           <div class="polaroid__image">
             <img
-              src="sonja-portrait.jpeg"
-              alt="Porträt von Sonja Waldenspuhl"
-              width="1366"
-              height="2048"
+              src="sonja-heute.jpeg"
+              alt="Sonja Waldenspuhl lacht im rosa Pullover in einer bunt beleuchteten Bar"
+              width="1868"
+              height="1868"
               loading="lazy"
             />
           </div>
@@ -35,11 +35,47 @@ import { Component } from '@angular/core';
                 {{ value }}
               </li>
             }
+            <li class="vl-check">
+              <i aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </i>
+              <span>
+                <span
+                  >Ehrenamtlich engagiert: Podiumsdiskussion auf der E.S.PKU-Konferenz 2025</span
+                >
+                <button type="button" class="proof-link" (click)="proofDialog.showModal()">
+                  Nachweis ansehen
+                </button>
+              </span>
+            </li>
           </ul>
           <span class="signature" aria-hidden="true">Sonja</span>
         </div>
       </div>
     </section>
+
+    <dialog
+      #proofDialog
+      class="proof"
+      aria-label="Teilnahmebescheinigung der E.S.PKU-Konferenz 2025"
+      (click)="closeFromBackdrop($event, proofDialog)"
+    >
+      <button
+        type="button"
+        class="proof__close"
+        aria-label="Ansicht schließen"
+        (click)="proofDialog.close()"
+      >
+        &times;
+      </button>
+      <img
+        src="es_pku_podiumsdiskussion_dig_pku.jpg"
+        alt="Teilnahmebescheinigung der E.S.PKU-Konferenz 2025 in Hamburg für Sonja Waldenspuhl mit dem Vermerk, dass sie an einer Podiumsdiskussion teilgenommen hat"
+        width="1077"
+        height="763"
+        loading="lazy"
+      />
+    </dialog>
   `,
   styles: `
     .about {
@@ -65,13 +101,11 @@ import { Component } from '@angular/core';
       background: linear-gradient(160deg, var(--peach), var(--sun));
     }
 
-    /* Näher am Gesicht als im Hero, damit es nicht zweimal dasselbe Bild ist. */
     .polaroid__image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.9);
-      transform-origin: 56% 21%;
+      object-position: 50% 50%;
     }
 
     .polaroid figcaption {
@@ -115,6 +149,52 @@ import { Component } from '@angular/core';
       transform: rotate(-3deg);
     }
 
+    .proof-link {
+      display: inline-block;
+      margin-left: 4px;
+      font-weight: 800;
+      color: var(--primary-ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    .proof {
+      width: min(920px, calc(100vw - 32px));
+      max-width: none;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      padding: 0;
+    }
+
+    .proof::backdrop {
+      background: rgb(15 12 8 / 0.75);
+    }
+
+    .proof img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .proof__close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: 50%;
+      background: #1f2d3a;
+      font-size: 26px;
+      line-height: 1;
+      color: #fff;
+      cursor: pointer;
+    }
+
     @media (max-width: 960px) {
       .about {
         grid-template-columns: minmax(0, 1fr);
@@ -134,4 +214,8 @@ export class HomeAboutComponent {
     'Verständliche Sprache statt Fachchinesisch',
     'Lösungen, die auch nach dem Vorstandswechsel funktionieren',
   ];
+
+  closeFromBackdrop(event: MouseEvent, dialog: HTMLDialogElement): void {
+    if (event.target === dialog) dialog.close();
+  }
 }

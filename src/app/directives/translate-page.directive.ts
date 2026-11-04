@@ -319,7 +319,15 @@ const EN: Record<string, string> = {
   'Übergabe & Support': 'Handover & support',
   'Verständliche Einweisung, Dokumentation und Hilfe, wenn ihr sie braucht.':
     'Clear onboarding, documentation and help when you need it.',
-  'Porträt von Sonja Waldenspuhl': 'Portrait of Sonja Waldenspuhl',
+  'Sonja Waldenspuhl lacht im rosa Pullover in einer bunt beleuchteten Bar':
+    'Sonja Waldenspuhl laughing in a pink jumper in a colourfully lit bar',
+  'Ehrenamtlich engagiert: Podiumsdiskussion auf der E.S.PKU-Konferenz 2025':
+    'Volunteer work: panel discussion at the 2025 E.S.PKU conference',
+  'Nachweis ansehen': 'View credential',
+  'Teilnahmebescheinigung der E.S.PKU-Konferenz 2025':
+    'Certificate of attendance, 2025 E.S.PKU conference',
+  'Teilnahmebescheinigung der E.S.PKU-Konferenz 2025 in Hamburg für Sonja Waldenspuhl mit dem Vermerk, dass sie an einer Podiumsdiskussion teilgenommen hat':
+    'Certificate of attendance for Sonja Waldenspuhl at the 2025 E.S.PKU conference in Hamburg, noting that she took part in a panel discussion',
   'Das bin ich!': "That's me!",
   'Hi, ich bin Sonja.': "Hi, I'm Sonja.",
   'Ich bin eure persönliche Ansprechpartnerin für digitale Vereinsarbeit. Die typischen Stolpersteine im Verein kenne ich aus eigener Erfahrung – deshalb baue ich nichts, was nach der Übergabe niemand mehr bedienen kann.':
