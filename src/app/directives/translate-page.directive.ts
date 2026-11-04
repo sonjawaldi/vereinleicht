@@ -249,7 +249,7 @@ const EN: Record<string, string> = {
     'I bring your website, membership administration and daily processes into a structure everyone understands – personal, accessible and free of jargon.',
   'Erstgespräch vereinbaren': 'Arrange an initial call',
   'Was ich für euch mache': 'What I do for you',
-  'Sonja Waldenspuhl lacht am Ostseestrand': 'Sonja Waldenspuhl laughing on a Baltic Sea beach',
+  'Sonja Waldenspuhl lacht am Strand': 'Sonja Waldenspuhl laughing on a beach',
   'Vereins-Websites kostenlos': 'association websites for free',
   'Hi, ich bin Sonja!': "Hi, I'm Sonja!",
   'Eure persönliche Ansprechpartnerin für digitale Vereinsarbeit.':
@@ -319,8 +319,8 @@ const EN: Record<string, string> = {
   'Übergabe & Support': 'Handover & support',
   'Verständliche Einweisung, Dokumentation und Hilfe, wenn ihr sie braucht.':
     'Clear onboarding, documentation and help when you need it.',
-  'Sonja Waldenspuhl lacht im rosa Pullover in einer bunt beleuchteten Bar':
-    'Sonja Waldenspuhl laughing in a pink jumper in a colourfully lit bar',
+  'Sonja Waldenspuhl hockt lachend im Dünengras am Strand':
+    'Sonja Waldenspuhl crouching and laughing in the dune grass on a beach',
   'Ehrenamtlich engagiert: Podiumsdiskussion auf der E.S.PKU-Konferenz 2025':
     'Volunteer work: panel discussion at the 2025 E.S.PKU conference',
   'Nachweis ansehen': 'View credential',

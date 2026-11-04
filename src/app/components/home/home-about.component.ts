@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
           <div class="polaroid__image">
             <img
               src="sonja-heute.jpeg"
-              alt="Sonja Waldenspuhl lacht im rosa Pullover in einer bunt beleuchteten Bar"
-              width="1868"
-              height="1868"
+              alt="Sonja Waldenspuhl hockt lachend im Dünengras am Strand"
+              width="560"
+              height="700"
               loading="lazy"
             />
           </div>
