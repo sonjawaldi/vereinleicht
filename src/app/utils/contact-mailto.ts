@@ -1,6 +1,6 @@
 import { Language } from '../services/language.service';
 
-const EMAIL_ADDRESS = 'hallo@vereinleicht.de';
+const EMAIL_ADDRESS = 'business@vereinleicht.de';
 
 export function createContactMailto(
   language: Language,
