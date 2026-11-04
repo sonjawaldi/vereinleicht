@@ -43,7 +43,7 @@ import { RouterLink } from '@angular/router';
           <figure class="hero__photo">
             <img
               src="sonja-portrait.jpeg"
-              alt="Sonja Waldenspuhl lacht am Ostseestrand"
+              alt="Sonja Waldenspuhl lacht am Strand"
               width="1366"
               height="2048"
             />
