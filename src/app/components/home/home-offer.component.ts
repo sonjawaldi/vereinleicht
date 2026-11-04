@@ -7,7 +7,7 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <section id="offer" class="vl-section offer-section">
+    <section id="offer" class="vl-section">
       <div class="vl-wrap offer">
         <div class="offer__main">
           <span class="vl-kicker offer__kicker">Kennenlernangebot</span>
@@ -63,10 +63,6 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
     </section>
   `,
   styles: `
-    .offer-section {
-      padding-top: 24px;
-    }
-
     .offer {
       position: relative;
       display: grid;
@@ -190,6 +186,39 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
 
       .rules {
         padding: 22px;
+      }
+    }
+
+    /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
+    @media (min-width: 1101px) and (max-height: 920px) {
+      .offer {
+        gap: 32px;
+        padding: 32px 40px 28px;
+      }
+      .offer__main {
+        gap: 12px;
+      }
+      .seats i {
+        width: 30px;
+        height: 30px;
+      }
+      .seats svg {
+        width: 14px;
+        height: 14px;
+      }
+      .rules {
+        padding: 20px;
+      }
+      .rules h3 {
+        font-size: 20px;
+      }
+      .rules ul {
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .rules .vl-check {
+        font-size: 14.5px;
+        line-height: 1.35;
       }
     }
   `,

@@ -261,7 +261,7 @@ interface Challenge {
       grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
       gap: 28px;
-      margin-top: 72px;
+      margin-top: clamp(32px, 6vh, 72px);
       border: 1.5px solid var(--border);
       border-radius: 32px;
       background: var(--surface);
@@ -337,6 +337,50 @@ interface Challenge {
 
       .after .vl-btn {
         width: 100%;
+      }
+    }
+
+    /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
+    @media (min-width: 1101px) and (max-height: 1000px) {
+      .notes {
+        gap: 18px;
+      }
+      .note {
+        min-height: 0;
+        gap: 8px;
+        padding: 20px 20px 18px;
+      }
+      .note:nth-child(2) {
+        margin-top: 12px;
+      }
+      .note:nth-child(4) {
+        margin-top: 8px;
+      }
+      .note h3 {
+        font-size: 19px;
+      }
+      .note p {
+        font-size: 14.5px;
+        line-height: 1.45;
+      }
+      .after {
+        gap: 18px;
+        margin-top: 20px;
+        border-radius: 24px;
+        padding: 14px 24px;
+      }
+      .after__avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 17px;
+      }
+      .after p {
+        font-size: 16px;
+        line-height: 1.4;
+      }
+      .after small {
+        margin-top: 0;
+        font-size: 20px;
       }
     }
   `,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -30,12 +31,20 @@ import { HomeContactComponent } from './home-contact.component';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
+  private readonly viewportScroller = inject(ViewportScroller);
+
   constructor(
     private titleService: Title,
     private metaService: Meta,
   ) {}
 
   ngOnInit(): void {
+    // Anker-Links landen direkt unter der festen Kopfleiste, nicht dahinter.
+    this.viewportScroller.setOffset(() => [
+      0,
+      document.querySelector<HTMLElement>('.site-header')?.offsetHeight ?? 0,
+    ]);
+
     this.titleService.setTitle('vereinleicht | Digitale Lösungen für Vereine');
     this.metaService.updateTag({
       name: 'description',

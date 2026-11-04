@@ -206,6 +206,28 @@ import { Component } from '@angular/core';
         margin-inline: auto;
       }
     }
+
+    /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
+    @media (min-width: 1101px) and (max-height: 920px) {
+      .polaroid {
+        width: 100%;
+        max-width: calc((100svh - var(--header-h) - 130px) * 0.8 + 36px);
+        justify-self: center;
+      }
+      .letter {
+        gap: 12px;
+      }
+      .letter > p {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      .values {
+        gap: 8px;
+      }
+      .signature {
+        font-size: 36px;
+      }
+    }
   `,
 })
 export class HomeAboutComponent {

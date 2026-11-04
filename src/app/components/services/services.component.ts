@@ -90,6 +90,33 @@ import { Component } from '@angular/core';
         font-size: 24px;
       }
     }
+
+    /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
+    @media (min-width: 1101px) and (max-height: 1000px) {
+      .cards {
+        gap: 14px;
+      }
+      .card {
+        gap: 16px;
+        border-radius: 24px;
+        padding: 20px 24px;
+      }
+      .card__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+      }
+      .card__text {
+        gap: 4px;
+      }
+      .card h3 {
+        font-size: 22px;
+      }
+      .card p {
+        font-size: 15px;
+        line-height: 1.45;
+      }
+    }
   `,
 })
 export class ServicesComponent {}

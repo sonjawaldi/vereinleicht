@@ -128,6 +128,29 @@ interface FaqItem {
         font-size: 18px;
       }
     }
+
+    /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
+    @media (min-width: 1101px) and (max-height: 920px) {
+      .faq {
+        gap: 8px;
+      }
+      .faq__item {
+        padding: 12px 20px;
+      }
+      .faq__item button {
+        font-size: 18px;
+      }
+      .faq__item i {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+      }
+      .faq__item p {
+        margin-top: 6px;
+        font-size: 15.5px;
+        line-height: 1.5;
+      }
+    }
   `,
 })
 export class HomeFaqComponent {

@@ -14,15 +14,24 @@
   margin: 0 auto;
 }
 
+/* Nur der Schriftzug aus dem Logo, einfarbig weiß: Das dunkle Blau wäre hier kaum lesbar. */
 .site-footer__logo {
+  position: relative;
   display: inline-block;
+  width: 11.5rem;
+  height: 1.75rem;
   margin-bottom: 12px;
+  overflow: hidden;
+  filter: brightness(0) invert(1);
 }
 
 .site-footer__logo img {
-  display: block;
-  width: auto;
-  height: 38px;
+  position: absolute;
+  top: -5rem;
+  left: 0;
+  width: 11.5rem;
+  max-width: none;
+  height: auto;
 }
 
 .site-footer p {

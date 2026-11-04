@@ -74,7 +74,6 @@ import { RouterLink } from '@angular/router';
   styles: `
     .hero {
       overflow: hidden;
-      padding-top: clamp(24px, 4vw, 56px);
     }
 
     .hero__grid {
@@ -324,6 +323,26 @@ import { RouterLink } from '@angular/router';
 
       .hero__hi strong {
         font-size: 24px;
+      }
+    }
+
+    /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
+    @media (min-width: 1101px) and (max-height: 920px) {
+      .hero__text {
+        gap: 16px;
+      }
+      .hero__title {
+        font-size: clamp(40px, 4.6vw, 64px);
+      }
+      .hero__lead {
+        font-size: 17px;
+        line-height: 1.55;
+      }
+      .hero__visual {
+        height: min(600px, calc(100svh - var(--header-h) - 48px));
+      }
+      .hero__photo {
+        height: calc(100% - 44px);
       }
     }
   `,

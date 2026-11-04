@@ -12,7 +12,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px clamp(20px, 8.4vw, 120px);
+  height: var(--header-h);
+  padding: 0 clamp(20px, 8.4vw, 120px);
 }
 
 .site-logo {
@@ -23,22 +24,23 @@
 .site-logo img {
   display: block;
   width: auto;
-  height: 42px;
+  height: 56px;
 }
 
-.site-logo__dark,
 .site-theme__sun {
   display: none !important;
 }
 
-:host-context(.dark) .site-logo__light,
 :host-context(.dark) .site-theme__moon {
   display: none !important;
 }
 
-:host-context(.dark) .site-logo__dark,
 :host-context(.dark) .site-theme__sun {
   display: block !important;
+}
+
+:host-context(.dark) .site-logo {
+  filter: brightness(0) invert(1);
 }
 
 .site-nav {
@@ -147,11 +149,7 @@
 }
 
 @media (max-width: 700px) {
-  .site-header__bar {
-    padding-block: 12px;
-  }
-
   .site-logo img {
-    height: 32px;
+    height: 48px;
   }
 }

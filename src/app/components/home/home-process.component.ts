@@ -123,7 +123,7 @@ import { RouterLink } from '@angular/router';
     .path-cta {
       display: flex;
       justify-content: center;
-      margin-top: 64px;
+      margin-top: clamp(28px, 5vh, 64px);
     }
 
     @media (max-width: 960px) {
@@ -163,6 +163,32 @@ import { RouterLink } from '@angular/router';
     @media (max-width: 700px) {
       .path-cta .vl-btn {
         width: 100%;
+      }
+    }
+
+    /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
+    @media (min-width: 1101px) and (max-height: 920px) {
+      .path::before {
+        top: 30px;
+      }
+      .step {
+        gap: 6px;
+      }
+      .step__num {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 4px;
+        font-size: 26px;
+      }
+      .step h3 {
+        font-size: 20px;
+      }
+      .step p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .path-cta {
+        margin-top: 24px;
       }
     }
   `,
