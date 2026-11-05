@@ -111,6 +111,8 @@ const EN: Record<string, string> = {
     'What helped me most in those moments was community. Connecting with others affected and feeling understood without having to explain everything showed me how important associations and support groups are for people with rare diseases. A good association is more than an organisation. It can be an anchor when other anchors are missing.',
   'Genau deshalb möchte ich Vereine und Organisationen in diesem Bereich mit meiner Arbeit unterstützen. Damit die Energie, die sonst in umständliche Technik oder veraltete Systeme fließt, wieder dort ankommt, wo sie hingehört: bei den Menschen, die diese Gemeinschaft brauchen.':
     'That is exactly why I want my work to support associations and organisations in this field, so energy otherwise spent on cumbersome technology or outdated systems can go where it belongs: to the people who need this community.',
+  'Genau deshalb möchte ich mit meiner Arbeit Vereine unterstützen, die Menschen verbinden – egal ob Sport, Kultur, Soziales oder Selbsthilfe. Damit die Energie, die sonst in umständliche Technik oder veraltete Systeme fließt, wieder dort ankommt, wo sie hingehört: bei den Menschen, für die es den Verein gibt.':
+    'That is exactly why I want my work to support associations that bring people together – whether sports, culture, social causes or self-help. So energy otherwise spent on cumbersome technology or outdated systems can go where it belongs: to the people the association exists for.',
   'für Vereine': 'for associations',
   'Informatik-Studentin & Softwareentwicklerin': 'Computer science student & software developer',
   'Hallo, ich bin': 'Hello, I am',

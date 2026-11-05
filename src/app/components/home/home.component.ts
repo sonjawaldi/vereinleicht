@@ -8,6 +8,7 @@ import { HomeHeroComponent } from './home-hero.component';
 import { HomeChallengesComponent } from './home-challenges.component';
 import { HomeProcessComponent } from './home-process.component';
 import { HomeAboutComponent } from './home-about.component';
+import { HomeMotivationComponent } from './home-motivation.component';
 import { HomeOfferComponent } from './home-offer.component';
 import { HomeFaqComponent } from './home-faq.component';
 import { HomeContactComponent } from './home-contact.component';
@@ -23,6 +24,7 @@ import { HomeContactComponent } from './home-contact.component';
     HomeChallengesComponent,
     HomeProcessComponent,
     HomeAboutComponent,
+    HomeMotivationComponent,
     HomeOfferComponent,
     HomeFaqComponent,
     HomeContactComponent,
