@@ -11,11 +11,10 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
       <div class="vl-wrap offer">
         <div class="offer__main">
           <span class="vl-kicker offer__kicker">Kennenlernangebot</span>
-          <h2 class="vl-h2">Die ersten 3 Vereins-Websites mache ich kostenlos.</h2>
-          <p class="vl-lead">
-            Damit euer Verein online gefunden wird – von neuen Mitgliedern, Besucher:innen und
-            Unterstützer:innen. Modern, fürs Handy optimiert und bei Google sichtbar.
-          </p>
+          <h2 class="vl-h2">Für meine ersten 3 Vereine mache ich die Website kostenlos.</h2>
+          <p class="vl-lead">Mein Beitrag fürs Ehrenamt, regulärer Wert ca. 1.000 €. Im Gegenzug darf ich euer Projekt als Referenz zeigen, und ihr gebt mir ein kurzes Feedback.</p>
+        </div>
+        <div class="offer__side">
           <div class="seats">
             <span aria-hidden="true">
               <i class="seats__full">
@@ -24,7 +23,7 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
               <i></i>
               <i></i>
             </span>
-            Noch 2 von 3 Plätzen frei
+            Noch 2 von 3 Plätzen für Vereine frei
           </div>
           @if (contactFormEnabled) {
             <button
@@ -48,16 +47,23 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
         </div>
         <div class="rules">
           <h3>Das Kleingedruckte – ganz groß</h3>
-          <ul>
-            @for (rule of rules; track rule) {
-              <li class="vl-check">
-                <i aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
-                </i>
-                {{ rule }}
-              </li>
+          <div class="rules__groups">
+            @for (group of groups; track group.title) {
+              <div class="rules__group">
+                <h4>{{ group.title }}</h4>
+                <ul>
+                  @for (item of group.items; track item) {
+                    <li class="vl-check">
+                      <i aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path [attr.d]="group.icon"></path></svg>
+                      </i>
+                      {{ item }}
+                    </li>
+                  }
+                </ul>
+              </div>
             }
-          </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -66,8 +72,9 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
     .offer {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 56px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 32px 56px;
       border-radius: 12px 12px 40px 12px;
       background: var(--sun);
       padding: 72px 64px 64px;
@@ -92,7 +99,14 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 20px;
+      gap: 12px;
+    }
+
+    .offer__side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
     }
 
     .seats {
@@ -136,37 +150,61 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
     }
 
     .rules {
-      align-self: start;
-      border-radius: 28px;
-      background: var(--surface);
-      padding: 32px;
+      grid-column: 1 / -1;
     }
 
     .rules h3 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 600;
       line-height: 1.25;
+      color: var(--heading);
+    }
+
+    .rules__groups {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .rules__group {
+      border-radius: 20px;
+      background: var(--surface);
+      padding: 18px;
+    }
+
+    .rules__group h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.3;
       color: var(--heading);
     }
 
     .rules ul {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin: 16px 0 0;
+      gap: 8px;
+      margin: 10px 0 0;
       padding: 0;
       list-style: none;
     }
 
     .rules .vl-check {
+      font-size: 14.5px;
       font-weight: 600;
+      line-height: 1.35;
     }
 
     @media (max-width: 1100px) {
       .offer {
         grid-template-columns: minmax(0, 1fr);
-        gap: 36px;
+        gap: 28px;
         padding: 56px 40px 40px;
+      }
+
+      .rules__groups {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -177,26 +215,48 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
         padding: 44px 22px 26px;
       }
 
-      .offer__main .vl-btn {
+      .offer__side,
+      .offer__side .vl-btn {
         width: 100%;
+      }
+
+      .offer__side .vl-btn {
         padding: 14px 20px;
         text-align: center;
         white-space: normal;
       }
 
-      .rules {
-        padding: 22px;
+      .rules__groups {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     /* Niedrige Laptop-Bildschirme: Das Thema passt komplett ins Bild. */
     @media (min-width: 1101px) and (max-height: 920px) {
       .offer {
-        gap: 32px;
-        padding: 32px 40px 28px;
+        gap: 16px 32px;
+        padding: 28px 32px 24px;
       }
       .offer__main {
-        gap: 12px;
+        gap: 8px;
+      }
+      .offer__main .vl-h2 {
+        font-size: 34px;
+      }
+      .rules__groups {
+        gap: 8px;
+      }
+      .rules .vl-check {
+        gap: 8px;
+        font-size: 14px;
+      }
+      .rules .vl-check i {
+        width: 20px;
+        height: 20px;
+      }
+      .rules .vl-check svg {
+        width: 12px;
+        height: 12px;
       }
       .seats i {
         width: 30px;
@@ -206,19 +266,11 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
         width: 14px;
         height: 14px;
       }
-      .rules {
-        padding: 20px;
+      .rules__group {
+        padding: 12px;
       }
       .rules h3 {
         font-size: 20px;
-      }
-      .rules ul {
-        gap: 8px;
-        margin-top: 10px;
-      }
-      .rules .vl-check {
-        font-size: 14.5px;
-        line-height: 1.35;
       }
     }
   `,
@@ -226,11 +278,46 @@ import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
 export class HomeOfferComponent {
   readonly appointmentRequested = output<void>();
   readonly contactFormEnabled = CONTACT_FORM_ENABLED;
-  readonly rules = [
-    'Einmalige, kostenlose Erstellung im Rahmen meiner Portfolio-Aktion',
-    'Ein dezenter Hinweis im Footer, dass die Website von mir ist',
-    'Domain und Hosting bezahlt ihr selbst',
-    'Bis zu 5 Seiten – ohne Sonderfunktionen wie Mitgliederverwaltung, Portale oder Buchungssysteme',
-    'Nicht für größere Organisationen und Verbände oder Websites mit hohem Funktions- oder Verwaltungsaufwand',
+  readonly groups = [
+    {
+      title: 'Das bekommt ihr',
+      icon: 'M5 12.5l4.5 4.5L19 7.5',
+      items: [
+        'Kostenlos, Wert ca. 1.000 €',
+        'Bis zu 5 Seiten, fürs Handy',
+        'Kontaktformular, SEO-Grundlagen',
+        '1 Korrekturrunde, Einweisung',
+      ],
+    },
+    {
+      title: 'Das kommt von euch',
+      icon: 'M5 12h14M13 6l6 6-6 6',
+      items: [
+        'Referenz mit Vorher-Nachher',
+        'Feedback mit eurem Namen',
+        'Texte, Bilder, Logo in 3 Wochen',
+        'VereinLeicht-Hinweis im Footer',
+      ],
+    },
+    {
+      title: 'Kosten danach',
+      icon: 'M12 5v14M5 12h14',
+      items: [
+        'Domain zahlt ihr selbst',
+        'Hosting optional: 15 €/Monat',
+        'Pflege optional: ab 49 €/Monat',
+        'Änderungen: 65 €/h',
+      ],
+    },
+    {
+      title: 'Nicht enthalten',
+      icon: 'M6 6l12 12M18 6L6 18',
+      items: [
+        'Shops, Buchungssysteme',
+        'Portale, Mitgliederverwaltung',
+        'Texterstellung, Fotoshooting',
+        'Große Organisationen, Verbände',
+      ],
+    },
   ];
 }

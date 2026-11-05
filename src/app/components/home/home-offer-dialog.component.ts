@@ -51,7 +51,7 @@ import { RouterLink } from '@angular/router';
             id="website-offer-title"
             class="offer-title max-w-md font-black leading-tight tracking-tight"
           >
-            Die nächsten 3 Websites erstelle ich kostenlos.
+            {{ title }}
           </h2>
           <p
             id="website-offer-description"
@@ -85,7 +85,7 @@ import { RouterLink } from '@angular/router';
           <p
             class="offer-availability text-center font-bold text-emerald-700 dark:text-emerald-300"
           >
-            Noch 2 von 3 Plätzen frei.
+            {{ availability }}
           </p>
 
           @if (audience === 'portal') {
@@ -218,10 +218,6 @@ import { RouterLink } from '@angular/router';
         margin-top: 0;
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .offer-condition:nth-child(5) {
-        grid-column: 1 / -1;
-      }
     }
   `,
 })
@@ -234,12 +230,37 @@ export class HomeOfferDialogComponent implements OnDestroy {
   readonly conditions = [
     'Es handelt sich um eine einmalige, kostenlose Erstellung im Rahmen meiner Portfolio-Aktion.',
     'Auf der Website wird dezent im Footer darauf hingewiesen, dass sie von mir erstellt wurde.',
-    'Die Kosten für Domain und Hosting übernehmen Sie selbst.',
+    'Die Domain zahlen Sie selbst. Das Hosting übernehme ich auf Wunsch für 15 €/Monat.',
+    'Texte, Bilder und Logo liefern Sie innerhalb von 3 Wochen.',
     'Ausgenommen sind größere Organisationen und Verbände sowie Webseiten mit hohem Funktions- oder Verwaltungsaufwand.',
     'Maximal 5 Seiten. Individuelle Funktionen wie Mitgliederverwaltung, Portale oder Buchungssysteme sind nicht enthalten.',
   ];
 
   dialogOpen = true;
+
+  get title(): string {
+    if (this.audience === 'business') {
+      return 'Für die nächsten 3 Unternehmen erstelle ich die Website kostenlos.';
+    }
+
+    if (this.audience === 'portal') {
+      return 'Für je 3 Vereine und Unternehmen erstelle ich die Website kostenlos.';
+    }
+
+    return 'Für die nächsten 3 Vereine erstelle ich die Website kostenlos.';
+  }
+
+  get availability(): string {
+    if (this.audience === 'business') {
+      return 'Noch 2 von 3 Plätzen für Unternehmen frei.';
+    }
+
+    if (this.audience === 'portal') {
+      return 'Plätze für Vereine und Unternehmen werden getrennt vergeben.';
+    }
+
+    return 'Noch 2 von 3 Plätzen für Vereine frei.';
+  }
 
   get description(): string {
     if (this.audience === 'business') {
@@ -247,7 +268,7 @@ export class HomeOfferDialogComponent implements OnDestroy {
     }
 
     if (this.audience === 'portal') {
-      return 'Ich gestalte eine moderne, mobil optimierte Website, mit der Sie bei Google sichtbar werden. Für die nächsten drei Vereine oder Unternehmen kostenlos. Wählen Sie den passenden Bereich aus.';
+      return 'Ich gestalte eine moderne, mobil optimierte Website, mit der Sie bei Google sichtbar werden. Für je drei Vereine und Unternehmen kostenlos. Wählen Sie den passenden Bereich aus.';
     }
 
     return 'Damit Ihr Verein online von neuen Mitgliedern, Besuchern und Unterstützern gefunden wird. Ich gestalte Ihnen eine moderne, mobil optimierte Website, mit der Sie bei Google sichtbar werden. Für die nächsten drei Vereine kostenlos.';

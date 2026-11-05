@@ -338,28 +338,39 @@ const EN: Record<string, string> = {
   'Lösungen, die auch nach dem Vorstandswechsel funktionieren':
     'Solutions that still work after the board changes',
   Kennenlernangebot: 'Introductory offer',
-  'Die ersten 3 Vereins-Websites mache ich kostenlos.':
-    'I build the first 3 association websites for free.',
-  'Damit euer Verein online gefunden wird – von neuen Mitgliedern, Besucher:innen und Unterstützer:innen. Modern, fürs Handy optimiert und bei Google sichtbar.':
-    'So your association can be found online – by new members, visitors and supporters. Modern, optimised for phones and visible on Google.',
-  'Noch 2 von 3 Plätzen frei': '2 of 3 places still available',
+  'Für meine ersten 3 Vereine mache ich die Website kostenlos.':
+    'I build the website for free for my first 3 associations.',
+  'Mein Beitrag fürs Ehrenamt, regulärer Wert ca. 1.000 €. Im Gegenzug darf ich euer Projekt als Referenz zeigen, und ihr gebt mir ein kurzes Feedback.':
+    'My contribution to volunteering, regular value approx. €1,000. In return, I may show your project as a reference, and you give me brief feedback.',
+  'Noch 2 von 3 Plätzen für Vereine frei': '2 of 3 places for associations still available',
   'Jetzt unverbindlich Termin sichern': 'Book a no-obligation appointment',
   'Das Kleingedruckte – ganz groß': 'The small print – in large type',
-  'Einmalige, kostenlose Erstellung im Rahmen meiner Portfolio-Aktion':
-    'One-off, free creation as part of my portfolio campaign',
-  'Ein dezenter Hinweis im Footer, dass die Website von mir ist':
-    'A discreet footer note that I made the website',
-  'Domain und Hosting bezahlt ihr selbst': 'You pay for domain and hosting yourselves',
-  'Bis zu 5 Seiten – ohne Sonderfunktionen wie Mitgliederverwaltung, Portale oder Buchungssysteme':
-    'Up to 5 pages – without special features such as membership administration, portals or booking systems',
-  'Nicht für größere Organisationen und Verbände oder Websites mit hohem Funktions- oder Verwaltungsaufwand':
-    'Not for larger organisations and federations or websites with high functional or administrative effort',
+  'Das bekommt ihr': 'What you get',
+  'Kostenlos, Wert ca. 1.000 €': 'Free, worth approx. €1,000',
+  'Bis zu 5 Seiten, fürs Handy': 'Up to 5 pages, made for phones',
+  'Kontaktformular, SEO-Grundlagen': 'Contact form, SEO basics',
+  '1 Korrekturrunde, Einweisung': '1 revision round, introduction',
+  'Das kommt von euch': 'What you provide',
+  'Referenz mit Vorher-Nachher': 'Reference with before and after',
+  'Feedback mit eurem Namen': 'Feedback with your name',
+  'Texte, Bilder, Logo in 3 Wochen': 'Texts, images, logo within 3 weeks',
+  'VereinLeicht-Hinweis im Footer': 'VereinLeicht note in the footer',
+  'Kosten danach': 'Costs afterwards',
+  'Domain zahlt ihr selbst': 'You pay for the domain',
+  'Hosting optional: 15 €/Monat': 'Optional hosting: €15/month',
+  'Pflege optional: ab 49 €/Monat': 'Optional maintenance: from €49/month',
+  'Änderungen: 65 €/h': 'Changes: €65/h',
+  'Nicht enthalten': 'Not included',
+  'Shops, Buchungssysteme': 'Shops, booking systems',
+  'Portale, Mitgliederverwaltung': 'Portals, membership administration',
+  'Texterstellung, Fotoshooting': 'Copywriting, photo shoots',
+  'Große Organisationen, Verbände': 'Large organisations, federations',
   'Gut zu wissen': 'Good to know',
   'Eure Fragen': 'Your questions',
   'Was kostet die Website im Kennenlernangebot?':
     'What does the website cost in the introductory offer?',
-  'Für die ersten drei Vereine ist die Erstellung kostenlos. Ihr übernehmt nur die Kosten für Domain und Hosting.':
-    'For the first three associations, creation is free. You only cover domain and hosting costs.',
+  'Für die ersten drei Vereine ist die Erstellung kostenlos. Die Domain zahlt ihr selbst, das Hosting kann ich auf Wunsch für 15 €/Monat übernehmen.':
+    'For the first three associations, creation is free. You pay for the domain yourselves, and I can take care of hosting on request for €15/month.',
   'Wie viele Seiten sind enthalten?': 'How many pages are included?',
   'Bis zu 5 Seiten. Sonderfunktionen wie Mitgliederverwaltung, Portale oder Buchungssysteme sind im Kennenlernangebot nicht enthalten.':
     'Up to 5 pages. Special features such as membership administration, portals or booking systems are not part of the introductory offer.',

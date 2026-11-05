@@ -2,10 +2,6 @@
   <app-header area="verein" />
   <main id="main-content" tabindex="-1">
     <app-home-hero />
-    <app-home-challenges (contactFormRequested)="contactSection.showForm($event)" />
-    <app-services />
-    <app-home-process />
-    <app-home-about />
     <app-home-offer
       (appointmentRequested)="
         contactSection.showForm({
@@ -15,6 +11,10 @@
         })
       "
     />
+    <app-home-challenges (contactFormRequested)="contactSection.showForm($event)" />
+    <app-services />
+    <app-home-process />
+    <app-home-about />
     <app-home-faq />
     <app-home-contact #contactSection />
   </main>

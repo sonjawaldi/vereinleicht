@@ -159,7 +159,7 @@ export class HomeFaqComponent {
       id: 'kosten',
       question: 'Was kostet die Website im Kennenlernangebot?',
       answer:
-        'Für die ersten drei Vereine ist die Erstellung kostenlos. Ihr übernehmt nur die Kosten für Domain und Hosting.',
+        'Für die ersten drei Vereine ist die Erstellung kostenlos. Die Domain zahlt ihr selbst, das Hosting kann ich auf Wunsch für 15 €/Monat übernehmen.',
     },
     {
       id: 'seiten',
