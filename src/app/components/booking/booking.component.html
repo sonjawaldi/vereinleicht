@@ -1,0 +1,236 @@
+<div>
+  @switch (state()) {
+    @case ('loading') {
+      <p role="status" class="py-6 text-center text-sm text-vl-muted">
+        Freie Termine werden geladen …
+      </p>
+    }
+
+    @case ('failed') {
+      <div class="space-y-4">
+        <p
+          role="alert"
+          class="rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800 dark:bg-red-500/10 dark:text-red-300"
+        >
+          Die freien Termine lassen sich gerade nicht laden.
+        </p>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <button type="button" class="vl-btn vl-btn--secondary w-full" (click)="load()">
+            Erneut versuchen
+          </button>
+          <button
+            type="button"
+            class="vl-btn vl-btn--primary w-full"
+            (click)="switchToMessage.emit()"
+          >
+            Nachricht schreiben
+          </button>
+        </div>
+      </div>
+    }
+
+    @case ('sent') {
+      <div role="status" class="space-y-4 py-2 text-center">
+        <span
+          class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[var(--sand)] text-2xl text-vl-primary"
+          aria-hidden="true"
+          >✓</span
+        >
+        <h3 class="font-serif text-xl font-bold text-vl-heading sm:text-2xl">
+          Danke – euer Termin ist eingetragen.
+        </h3>
+        <p class="text-sm leading-relaxed text-vl-muted">
+          <b class="text-vl-heading">{{ selectedLabel() }}</b>
+        </p>
+        <p class="text-sm leading-relaxed text-vl-muted">
+          Die Einladung mit allen Details kommt per E-Mail. Ich freue mich auf euch!
+        </p>
+        <button
+          type="button"
+          class="text-sm font-bold text-vl-primary underline underline-offset-4"
+          (click)="restart()"
+        >
+          Weiteren Termin buchen
+        </button>
+      </div>
+    }
+
+    @default {
+      <form
+        novalidate
+        #bookingForm="ngForm"
+        (ngSubmit)="submit(bookingForm)"
+        class="space-y-4"
+        aria-label="Kennenlerngespräch buchen"
+      >
+        <p class="text-sm leading-relaxed text-vl-muted">
+          <b class="text-vl-heading">{{ slotMinutes() }}</b
+          >&ngsp; <span>Minuten Kennenlernen per Video, kostenlos und unverbindlich.</span>&ngsp;
+          <span>Alle Zeiten in deutscher Zeit.</span>
+        </p>
+
+        @if (errorMessage()) {
+          <p
+            role="alert"
+            class="rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-800 dark:bg-red-500/10 dark:text-red-300"
+          >
+            {{ errorMessage() }}
+          </p>
+        }
+
+        @if (days().length === 0) {
+          <p class="rounded-xl bg-[var(--sand)] px-4 py-3 text-sm text-vl-heading">
+            Gerade ist online kein Termin frei.
+          </p>
+          <button
+            type="button"
+            class="vl-btn vl-btn--primary w-full"
+            (click)="switchToMessage.emit()"
+          >
+            Nachricht schreiben
+          </button>
+        } @else {
+          <div role="group" aria-labelledby="booking-day-label">
+            <span id="booking-day-label" class="mb-1.5 block text-sm font-bold">Tag</span>
+            <div class="flex flex-wrap gap-2">
+              @for (day of days(); track day.key) {
+                <button
+                  type="button"
+                  class="rounded-full border px-3.5 py-2 text-sm font-bold transition"
+                  [class]="
+                    dayKey() === day.key
+                      ? 'border-vl-primary bg-vl-primary text-[var(--on-primary)]'
+                      : 'border-vl-border bg-vl-canvas text-vl-heading hover:border-vl-primary'
+                  "
+                  [attr.aria-pressed]="dayKey() === day.key"
+                  (click)="chooseDay(day.key)"
+                >
+                  {{ day.label }}
+                </button>
+              }
+            </div>
+          </div>
+
+          <div role="group" aria-labelledby="booking-time-label">
+            <span id="booking-time-label" class="mb-1.5 block text-sm font-bold">Uhrzeit</span>
+            <div class="flex flex-wrap gap-2">
+              @for (slot of selectedDay()?.slots; track slot.start) {
+                <button
+                  type="button"
+                  class="rounded-full border px-3.5 py-2 text-sm font-bold tabular-nums transition"
+                  [class]="
+                    start() === slot.start
+                      ? 'border-vl-primary bg-vl-primary text-[var(--on-primary)]'
+                      : 'border-vl-border bg-vl-canvas text-vl-heading hover:border-vl-primary'
+                  "
+                  [attr.aria-pressed]="start() === slot.start"
+                  (click)="start.set(slot.start)"
+                >
+                  {{ slot.time }}
+                </button>
+              }
+            </div>
+          </div>
+
+          @if (start()) {
+            <p class="rounded-xl bg-[var(--sand)] px-4 py-3 text-sm text-vl-heading">
+              <b>Euer Termin:</b> {{ selectedLabel() }}
+            </p>
+
+            <div class="grid gap-3 sm:grid-cols-2 sm:gap-4">
+              <div>
+                <label for="booking-name" class="mb-1.5 block text-sm font-bold">Name *</label>
+                <input
+                  id="booking-name"
+                  name="name"
+                  type="text"
+                  required
+                  minlength="2"
+                  autocomplete="name"
+                  placeholder="Dein Name"
+                  [(ngModel)]="name"
+                  [attr.aria-invalid]="!!fieldErrors()['name']"
+                  class="w-full rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
+                />
+                @if (fieldErrors()['name']) {
+                  <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+                    {{ fieldErrors()['name'] }}
+                  </p>
+                }
+              </div>
+              <div>
+                <label for="booking-email" class="mb-1.5 block text-sm font-bold">
+                  E-Mail-Adresse *
+                </label>
+                <input
+                  id="booking-email"
+                  name="email"
+                  type="email"
+                  required
+                  email
+                  autocomplete="email"
+                  [(ngModel)]="email"
+                  [attr.aria-invalid]="!!fieldErrors()['email']"
+                  class="w-full rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
+                />
+                @if (fieldErrors()['email']) {
+                  <p class="mt-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+                    {{ fieldErrors()['email'] }}
+                  </p>
+                }
+              </div>
+            </div>
+
+            <div>
+              <label for="booking-organization" class="mb-1.5 block text-sm font-bold">
+                Verein <span class="font-normal text-vl-muted">(optional)</span>
+              </label>
+              <input
+                id="booking-organization"
+                name="organization"
+                type="text"
+                autocomplete="organization"
+                [(ngModel)]="organization"
+                class="w-full rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
+              />
+            </div>
+
+            <div>
+              <label for="booking-note" class="mb-1.5 block text-sm font-bold">
+                Worum geht es? <span class="font-normal text-vl-muted">(optional)</span>
+              </label>
+              <textarea
+                id="booking-note"
+                name="note"
+                rows="3"
+                maxlength="2000"
+                [(ngModel)]="note"
+                class="w-full resize-y rounded-xl border border-vl-border bg-vl-canvas px-4 py-3 text-sm text-vl-heading outline-none transition focus:border-vl-primary focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-950"
+              ></textarea>
+            </div>
+
+            <!-- Honeypot: für Menschen unsichtbar, Bots füllen ihn aus. -->
+            <div class="hidden" aria-hidden="true">
+              <label for="booking-website">Website</label>
+              <input
+                id="booking-website"
+                name="website"
+                [(ngModel)]="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <button type="submit" [disabled]="sending()" class="vl-btn vl-btn--primary w-full">
+              {{ sending() ? 'Wird gebucht …' : 'Termin buchen' }}
+              <span aria-hidden="true">→</span>
+            </button>
+            <p class="text-center text-xs leading-relaxed text-vl-muted">
+              Eure Angaben werden ausschließlich für diesen Termin verwendet.
+            </p>
+          }
+        }
+      </form>
+    }
+  }
+</div>
