@@ -403,6 +403,35 @@ const EN: Record<string, string> = {
   'Vielen Dank für eure Nachricht. Ich melde mich zeitnah bei euch.':
     'Thank you for your message. I will get back to you shortly.',
   'Bitte prüft die markierten Felder.': 'Please check the highlighted fields.',
+  'Kennenlernen buchen': 'Book an intro call',
+  'Art der Kontaktaufnahme': 'Type of contact',
+  'Nachricht schreiben': 'Write a message',
+  'Termin buchen': 'Book a call',
+  'Kennenlerngespräch buchen': 'Book an intro call',
+  'Freie Termine werden geladen …': 'Loading available times …',
+  'Die freien Termine lassen sich gerade nicht laden.':
+    'The available times cannot be loaded right now.',
+  'Erneut versuchen': 'Try again',
+  'Danke – euer Termin ist eingetragen.': 'Thank you – your call is booked.',
+  'Die Einladung mit allen Details kommt per E-Mail. Ich freue mich auf euch!':
+    'The invitation with all details is on its way by email. I look forward to meeting you!',
+  'Weiteren Termin buchen': 'Book another call',
+  'Minuten Kennenlernen per Video, kostenlos und unverbindlich.':
+    'minute video intro call, free and without obligation.',
+  'Alle Zeiten in deutscher Zeit.': 'All times are German time.',
+  'Gerade ist online kein Termin frei.': 'No times are available online right now.',
+  Tag: 'Day',
+  Uhrzeit: 'Time',
+  'Euer Termin:': 'Your call:',
+  'Name *': 'Name *',
+  'Worum geht es?': 'What is it about?',
+  'Wird gebucht …': 'Booking …',
+  'Eure Angaben werden ausschließlich für diesen Termin verwendet.':
+    'Your details are used solely for this appointment.',
+  'Bitte einen Namen mit mindestens 2 Zeichen angeben.':
+    'Please enter a name with at least 2 characters.',
+  'Dieser Termin wurde gerade vergeben. Bitte wählt einen anderen.':
+    'This time was just taken. Please choose another one.',
 };
 
 @Directive({ selector: '[appTranslatePage]', standalone: true })
