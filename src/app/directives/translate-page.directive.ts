@@ -236,7 +236,14 @@ const EN: Record<string, string> = {
   'Zuständig ist die Marktüberwachungsstelle der Länder für die Barrierefreiheit von Produkten und Dienstleistungen (MLBF AöR). Informationen und das Kontaktformular für Verbraucherinnen und Verbraucher finden Sie auf der':
     'The competent authority is the Market Surveillance Authority of the German Federal States for the Accessibility of Products and Services (MLBF). Information and the consumer contact form are available on the',
   'Website der MLBF': 'MLBF website',
-  'Angaben gemäß § 5 TMG': 'Information pursuant to Section 5 TMG',
+  'Angaben gemäß § 5 DDG': 'Information pursuant to Section 5 DDG',
+  'Haftung für Links': 'Liability for links',
+  'Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft; rechtswidrige Inhalte waren zu diesem Zeitpunkt nicht erkennbar. Sobald mir Rechtsverletzungen bekannt werden, entferne ich derartige Links umgehend.':
+    'This website contains links to external third-party websites whose content I have no control over. The respective provider or operator is always responsible for the content of linked pages. The linked pages were checked for possible legal violations at the time of linking; no unlawful content was apparent at that time. If I become aware of any legal violations, I will remove such links immediately.',
+  Rechtsgrundlage: 'Legal basis',
+  'Die Anbieterkennzeichnung erfolgt nach': 'This provider identification is made pursuant to',
+  '§ 5 Digitale-Dienste-Gesetz (DDG)': 'Section 5 of the German Digital Services Act (DDG)',
+  '(öffnet in neuem Tab)': '(opens in a new tab)',
   'Seite nicht gefunden': 'Page not found',
   'Die von Ihnen gesuchte Seite existiert leider nicht oder wurde verschoben.':
     'The page you are looking for does not exist or has been moved.',
