@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, OnDestroy, computed, inject } from '@angular/core';
+import { BookingComponent } from '../booking/booking.component';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
 import { LanguageService } from '../../services/language.service';
 import { CONTACT_FORM_ENABLED } from '../../config/feature-flags';
@@ -9,7 +10,7 @@ import type { ContactPrefill } from './home-challenges.component';
 @Component({
   selector: 'app-home-contact',
   standalone: true,
-  imports: [ContactFormComponent],
+  imports: [BookingComponent, ContactFormComponent],
   template: `
     <section id="contact" class="vl-section">
       <div class="vl-wrap contact">
@@ -27,6 +28,9 @@ import type { ContactPrefill } from './home-challenges.component';
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6"></path>
                 </svg>
+              </button>
+              <button type="button" class="vl-btn vl-btn--secondary" (click)="showBooking()">
+                Kennenlernen buchen
               </button>
             }
             <a [href]="contactMailto()" class="vl-btn vl-btn--secondary">Direkt per E-Mail</a>
@@ -70,7 +74,43 @@ import type { ContactPrefill } from './home-challenges.component';
             &times;
           </button>
           <h2 id="contact-form-dialog-title" class="sr-only">Kontakt aufnehmen</h2>
-          <app-contact-form [prefill]="formPrefill.message" />
+          <div
+            class="mb-4 mr-12 grid grid-cols-2 gap-1 rounded-full bg-[var(--sand)] p-1 sm:mb-5"
+            role="group"
+            aria-label="Art der Kontaktaufnahme"
+          >
+            <button
+              type="button"
+              class="whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-bold transition sm:px-3 sm:text-sm"
+              [class]="
+                dialogMode === 'message'
+                  ? 'bg-vl-surface text-vl-heading shadow-sm'
+                  : 'text-vl-muted hover:text-vl-heading'
+              "
+              [attr.aria-pressed]="dialogMode === 'message'"
+              (click)="dialogMode = 'message'"
+            >
+              Nachricht schreiben
+            </button>
+            <button
+              type="button"
+              class="whitespace-nowrap rounded-full px-2 py-2 text-[13px] font-bold transition sm:px-3 sm:text-sm"
+              [class]="
+                dialogMode === 'booking'
+                  ? 'bg-vl-surface text-vl-heading shadow-sm'
+                  : 'text-vl-muted hover:text-vl-heading'
+              "
+              [attr.aria-pressed]="dialogMode === 'booking'"
+              (click)="dialogMode = 'booking'"
+            >
+              Termin buchen
+            </button>
+          </div>
+          @if (dialogMode === 'booking') {
+            <app-booking (switchToMessage)="dialogMode = 'message'" />
+          } @else {
+            <app-contact-form [prefill]="formPrefill.message" />
+          }
         </section>
       </div>
     }
@@ -175,6 +215,7 @@ export class HomeContactComponent implements OnDestroy {
   readonly contactMailto = computed(() => createContactMailto(this.language.language()));
   private previouslyFocusedElement: HTMLElement | null = null;
   dialogOpen = false;
+  dialogMode: 'message' | 'booking' = 'message';
   formPrefill: ContactPrefill = { subject: 'Neue Kontaktanfrage über die Website', message: '' };
 
   showForm(prefill?: ContactPrefill): void {
@@ -184,6 +225,19 @@ export class HomeContactComponent implements OnDestroy {
       subject: 'Neue Kontaktanfrage über die Website',
       message: '',
     };
+    this.openDialog('message');
+  }
+
+  /** Öffnet den Dialog direkt bei den freien Terminen. */
+  showBooking(): void {
+    if (!this.contactFormEnabled) return;
+
+    this.formPrefill = { subject: 'Neue Kontaktanfrage über die Website', message: '' };
+    this.openDialog('booking');
+  }
+
+  private openDialog(mode: 'message' | 'booking'): void {
+    this.dialogMode = mode;
     this.previouslyFocusedElement = this.document.activeElement as HTMLElement | null;
     this.dialogOpen = true;
     this.document.body.style.overflow = 'hidden';
